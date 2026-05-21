@@ -119,10 +119,10 @@ kbd {
   color: var(--muted);
 }
 
-/* Mode grid */
+/* Mode grid — 2×2 for 4 modes */
 .mode-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
@@ -483,6 +483,73 @@ kbd {
 
 .field.flash { animation: fieldFlash .4s ease; }
 
+/* ---- Learn mode word card ---- */
+.fw.fw-learn {
+  max-width: 300px;
+  min-width: 160px;
+}
+
+.fw.fw-learn .fw-vi { font-size: 1.05rem; }
+
+/* Learn mode reveal — green instead of red */
+.fw.fw-learn-reveal {
+  border-color: var(--green) !important;
+  background: rgba(16,185,129,.13) !important;
+  box-shadow:
+    0 0 0 2px rgba(16,185,129,.25),
+    0 0 28px rgba(16,185,129,.4),
+    0 4px 20px rgba(0,0,0,.6) !important;
+  transition: top 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fw.fw-learn-reveal .fw-en {
+  color: var(--green) !important;
+  font-size: 1.25rem !important;
+}
+
+.fw.fw-learn-reveal .fw-cat::after {
+  content: ' · 🔊';
+  color: var(--green);
+  opacity: .9;
+}
+
+/* ---- Learn mode bottom bar ---- */
+.learn-bar {
+  height: var(--type-h);
+  flex-shrink: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 10px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  z-index: 10;
+}
+
+.learn-status {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color .3s;
+  text-align: center;
+}
+
+.learn-counter {
+  font-size: .72rem;
+  color: var(--muted);
+  letter-spacing: .3px;
+}
+
+/* Show/hide based on learn-mode class on #gameScreen */
+#gameScreen:not(.learn-mode) .learn-bar { display: none !important; }
+#gameScreen.learn-mode .type-area       { display: none !important; }
+#gameScreen.learn-mode .combo-wrap      { display: none !important; }
+#gameScreen.learn-mode .acc-wrap        { display: none !important; }
+
 /* ---- Typing Area ---- */
 .type-area {
   height: var(--type-h);
@@ -680,7 +747,7 @@ kbd {
    ================================================================ */
 
 @media (max-width: 520px) {
-  .mode-grid { grid-template-columns: 1fr; }
+  .mode-grid { grid-template-columns: repeat(2, 1fr); }
   .diff-grid { grid-template-columns: repeat(2, 1fr); }
   .game-input { font-size: 1.05rem; }
   .score-num  { font-size: 1.4rem; }

@@ -48,6 +48,16 @@ const MODE = {
   survival: { label: 'Survival',        lives: 3,        infinite: true,  dailyN: 0  },
   practice: { label: 'Practice',        lives: Infinity, infinite: true,  dailyN: 0  },
   daily:    { label: 'Daily Challenge', lives: 3,        infinite: false, dailyN: 25 },
+  learn:    { label: 'Learn',           lives: Infinity, infinite: true,  dailyN: 0  },
+};
+
+const LEARN_DC = {
+  label:     'Learn',
+  speed:     60,
+  spawnMs:   700,
+  maxScreen: 1,
+  maxLen:    99,
+  accel:     0,
 };
 
 /* Category → CSS color + rgb for glow */
@@ -65,7 +75,14 @@ const CAT_COLOR = {
   'Meeting English':      ['#a78bfa', '167,139,250'],
   'Customer Complaint':   ['#ef4444', '239,68,68'],
   'Supplier Management':  ['#0ea5e9', '14,165,233'],
-  'Safety & Environment': ['#22c55e', '34,197,94'],
+  'Safety & Environment':   ['#22c55e', '34,197,94'],
+  'Business Communication': ['#f59e0b', '245,158,11'],
+  'HR & Admin':             ['#a78bfa', '167,139,250'],
+  'Engineering':            ['#06b6d4', '6,182,212'],
+  'IT & Systems':           ['#10b981', '16,185,129'],
+  'Problem Solving':        ['#ec4899', '236,72,153'],
+  'Quality Tools':          ['#0ea5e9', '14,165,233'],
+  'Six Sigma':              ['#8b5cf6', '139,92,246'],
 };
 
 const COMBO_LEVELS = [
@@ -82,7 +99,8 @@ const LS_KEY = 'vocabrain_v1';
    STATE
    ================================================================ */
 
-let words      = [];   // all single-word cards loaded from data.json
+let words      = [];   // single-word cards (typing games)
+let allWords   = [];   // all cards including phrases (learn mode)
 let selMode    = 'survival';
 let selDiff    = 'easy';
 
@@ -101,10 +119,11 @@ async function loadWords() {
     const res = await fetch('./data.json');
     if (!res.ok) throw new Error();
     const all = await res.json();
-    // Keep only true single English words (no spaces)
-    words = all.filter(c => typeof c.english === 'string' && !c.english.includes(' ') && c.english.length >= 2);
+    allWords = all.filter(c => typeof c.english === 'string' && c.english.length >= 2);
+    words    = allWords.filter(c => !c.english.includes(' '));
   } catch {
-    words = FALLBACK;
+    allWords = FALLBACK;
+    words    = FALLBACK;
     console.warn('data.json not loaded — using built-in fallback');
   }
 }
@@ -128,8 +147,9 @@ function selectMode(m) {
   document.querySelectorAll('.mode-card').forEach(el =>
     el.classList.toggle('active', el.dataset.mode === m)
   );
-  // Daily challenge uses fixed Normal-like settings; hide difficulty
-  document.getElementById('diffBlock').style.display = m === 'daily' ? 'none' : '';
+  // Daily and Learn use fixed settings; hide difficulty selector
+  document.getElementById('diffBlock').style.display =
+    (m === 'daily' || m === 'learn') ? 'none' : '';
 }
 
 function selectDiff(d) {
@@ -165,61 +185,72 @@ function renderHighScores() {
    ================================================================ */
 
 function startGame() {
-  const dc    = DIFF[selMode === 'daily' ? 'normal' : selDiff];
-  const mc    = MODE[selMode];
+  const isLearn = selMode === 'learn';
+  const dc      = isLearn ? LEARN_DC : DIFF[selMode === 'daily' ? 'normal' : selDiff];
+  const mc      = MODE[selMode];
 
-  // Build word pool for this difficulty
-  let pool = words.filter(c => c.english.length <= dc.maxLen);
-  if (pool.length < 5) pool = [...words]; // fallback if too few
-
-  // Daily: seeded shuffle, fixed 25 words
-  if (selMode === 'daily') {
-    pool = dailyPool(pool, mc.dailyN);
+  // Build word pool
+  let pool;
+  if (isLearn) {
+    pool = shuffle([...allWords]);
   } else {
-    pool = shuffle([...pool]);
+    pool = words.filter(c => c.english.length <= dc.maxLen);
+    if (pool.length < 5) pool = [...words];
+    if (selMode === 'daily') pool = dailyPool(pool, mc.dailyN);
+    else pool = shuffle([...pool]);
   }
 
   G = {
-    mode:        selMode,
-    diff:        selMode === 'daily' ? 'normal' : selDiff,
-    dc,
-    mc,
-    pool,
-    poolIdx:     0,
-
-    falling:     [],      // active FallingWord objects
-    score:       0,
-    lives:       mc.lives === Infinity ? Infinity : mc.lives,
-    maxLives:    mc.lives === Infinity ? Infinity : mc.lives,
-    combo:       0,
-    maxCombo:    0,
-    correct:     0,
-    misses:      0,       // words that hit the bottom
-    elapsed:     0,       // seconds since start
-    spawnTimer:  0,       // ms accumulator
-    paused:      false,
-    over:        false,
-    running:     true,
-    dailyDone:   0,       // words spawned for daily mode
+    mode:         selMode,
+    diff:         isLearn ? 'learn' : (selMode === 'daily' ? 'normal' : selDiff),
+    dc, mc, pool,
+    poolIdx:      0,
+    falling:      [],
+    score:        0,
+    lives:        mc.lives === Infinity ? Infinity : mc.lives,
+    maxLives:     mc.lives === Infinity ? Infinity : mc.lives,
+    combo:        0,
+    maxCombo:     0,
+    correct:      0,
+    misses:       0,
+    elapsed:      0,
+    spawnTimer:   0,
+    paused:       false,
+    over:         false,
+    running:      true,
+    dailyDone:    0,
+    learnWaiting: false,
+    learnCount:   0,
   };
 
-  // Setup HUD
-  document.getElementById('hudLabel').textContent =
-    `${mc.label} · ${dc.label}`;
+  // HUD
+  document.getElementById('hudLabel').textContent = isLearn
+    ? '👁️ Learn Mode'
+    : `${mc.label} · ${dc.label}`;
+  document.querySelector('.score-label').textContent = isLearn ? 'đã học' : 'điểm';
+
   renderLives();
   renderScore();
   renderCombo();
   renderAcc();
 
-  // Clear old falling words from DOM
+  // Toggle learn-mode class (CSS handles show/hide of type-area vs learn-bar)
+  document.getElementById('gameScreen').classList.toggle('learn-mode', isLearn);
+
   document.querySelectorAll('.fw').forEach(el => el.remove());
 
   showScreen('gameScreen');
 
-  // Focus input
-  const inp = document.getElementById('gameInput');
-  inp.value = '';
-  inp.focus();
+  if (!isLearn) {
+    const inp = document.getElementById('gameInput');
+    inp.value = '';
+    inp.focus();
+  } else {
+    const statusEl = document.getElementById('learnStatus');
+    if (statusEl) statusEl.textContent = '👁️ Xem và nghe để học từ vựng...';
+    const cntEl = document.getElementById('learnCounter');
+    if (cntEl) cntEl.textContent = `${allWords.length} từ trong bộ`;
+  }
 
   lastTs = null;
   rafId  = requestAnimationFrame(gameLoop);
@@ -254,15 +285,14 @@ function update(dt) {
   const fieldH = field.clientHeight;
   const hitY   = fieldH - 56; // danger zone top
 
-  // Speed increases every 30 s
-  const speed = G.dc.speed + Math.floor(G.elapsed / 30) * G.dc.accel;
+  // Speed: learn mode constant; others accelerate every 30s
+  const speed = G.dc.speed + (G.mode === 'learn' ? 0 : Math.floor(G.elapsed / 30) * G.dc.accel);
 
   // ---- Spawn ----
-  // Count only words still actively falling (not yet removed/revealed)
   const activeCount = G.falling.filter(f => !f.removed).length;
-  const canSpawn =
-    activeCount < G.dc.maxScreen &&
-    G.spawnTimer >= G.dc.spawnMs;
+  const canSpawn = G.mode === 'learn'
+    ? (!G.learnWaiting && activeCount === 0 && G.spawnTimer >= G.dc.spawnMs)
+    : (activeCount < G.dc.maxScreen && G.spawnTimer >= G.dc.spawnMs);
 
   if (canSpawn) {
     G.spawnTimer = 0;
@@ -281,10 +311,11 @@ function update(dt) {
     // Danger zone coloring
     if (fw.y > hitY - 90) fw.el.classList.add('fw-danger');
 
-    // Word escaped — miss!
+    // Word reached bottom
     if (fw.y > hitY && !fw.removed) {
       toRemove.push(fw);
-      handleMiss(fw);
+      if (G.mode === 'learn') handleLearnReveal(fw);
+      else handleMiss(fw);
     }
   }
 
@@ -327,10 +358,11 @@ function spawnWord(field, speed) {
 
   // Build DOM element
   const [color, rgb] = CAT_COLOR[card.category] || ['#4f6ef7', '79,110,247'];
-  const vi = simplifyVi(card.vietnamese);
+  const isLearn = G.mode === 'learn';
+  const vi      = isLearn ? (card.vietnamese || '') : simplifyVi(card.vietnamese);
 
   const el = document.createElement('div');
-  el.className = 'fw';
+  el.className = isLearn ? 'fw fw-learn' : 'fw';
   el.style.setProperty('--fw-color', color);
   el.style.setProperty('--fw-rgb', rgb);
   el.innerHTML = `
@@ -340,11 +372,13 @@ function spawnWord(field, speed) {
     <div class="fw-hint" data-hint></div>
   `;
 
-  // Determine X position (avoid crowding)
+  // X position: centered for learn, spread for game
   const fieldW = field.clientWidth;
-  const wordW  = Math.min(220, Math.max(110, vi.length * 14 + 28));
+  const wordW  = isLearn
+    ? Math.min(300, Math.max(160, vi.length * 11 + 40))
+    : Math.min(220, Math.max(110, vi.length * 14 + 28));
   const maxX   = Math.max(0, fieldW - wordW);
-  const x      = pickX(maxX);
+  const x      = isLearn ? Math.round(maxX / 2) : pickX(maxX);
 
   el.style.left = x + 'px';
   el.style.top  = '0px';
@@ -357,7 +391,7 @@ function spawnWord(field, speed) {
     el,
     x,
     y:       -90,
-    speed:   speed * (0.88 + Math.random() * 0.24),
+    speed:   isLearn ? speed : speed * (0.88 + Math.random() * 0.24),
     answer:  norm(card.english),
     removed: false,
   };
@@ -384,7 +418,7 @@ function simplifyVi(s) {
    ================================================================ */
 
 function onInput(e) {
-  if (G.paused || G.over) return;
+  if (G.paused || G.over || G.mode === 'learn') return;
   const typed = norm(e.target.value);
 
   // Highlight partial matches
@@ -520,11 +554,100 @@ function removeWord(fw) {
 }
 
 /* ================================================================
+   LEARN MODE — REVEAL & SPEAK
+   ================================================================ */
+
+function handleLearnReveal(fw) {
+  fw.removed     = true;
+  G.learnWaiting = true;
+  G.learnCount++;
+
+  // Freeze at current position
+  fw.el.style.top       = fw.y + 'px';
+  fw.el.style.transform = 'none';
+  fw.el.classList.remove('fw-hl', 'fw-danger');
+  fw.el.classList.add('fw-learn-reveal');
+
+  // Show English answer in green
+  const enEl = fw.el.querySelector('.fw-en');
+  if (enEl) enEl.classList.add('fw-en-show');
+
+  // Slide card up so it's fully visible above typing bar
+  requestAnimationFrame(() => {
+    const fieldH  = document.getElementById('field').clientHeight;
+    const safeTop = fieldH - 155;
+    if (fw.y > safeTop) fw.el.style.top = safeTop + 'px';
+  });
+
+  renderScore();
+
+  // Update learn counter
+  const cntEl = document.getElementById('learnCounter');
+  if (cntEl) cntEl.textContent = `${G.learnCount} từ đã học`;
+
+  // Speak English then Vietnamese, then fade out and move to next word
+  speakLearnCard(fw.card, () => {
+    fw.el.style.transition = 'opacity 0.5s ease';
+    fw.el.style.opacity    = '0';
+    setTimeout(() => {
+      fw.el.remove();
+      G.learnWaiting = false;
+      G.spawnTimer   = 0;   // reset timer → next word after spawnMs gap
+    }, 560);
+  });
+}
+
+function speakLearnCard(card, onDone) {
+  const synth   = window.speechSynthesis;
+  const statusEl = document.getElementById('learnStatus');
+
+  function setStatus(text, color) {
+    if (statusEl) { statusEl.textContent = text; statusEl.style.color = color || ''; }
+  }
+
+  synth.cancel();
+
+  // If speech not supported, just wait and move on
+  if (!synth) { setTimeout(onDone, 2200); return; }
+
+  setStatus(`🔊 ${card.english}`, '#818cf8');
+
+  const enUtter  = new SpeechSynthesisUtterance(card.english);
+  enUtter.lang   = 'en-US';
+  enUtter.rate   = 0.82;
+  enUtter.volume = 1;
+
+  enUtter.onerror = () => setTimeout(onDone, 1500);
+
+  enUtter.onend = () => {
+    setTimeout(() => {
+      setStatus(`🔊 ${card.vietnamese}`, '#10b981');
+
+      const viUtter  = new SpeechSynthesisUtterance(card.vietnamese);
+      viUtter.lang   = 'vi-VN';
+      viUtter.rate   = 0.85;
+      viUtter.volume = 1;
+
+      viUtter.onerror = () => setTimeout(onDone, 600);
+      viUtter.onend   = () => {
+        setStatus('👁️ Xem và nghe để học từ vựng...');
+        setTimeout(onDone, 600);
+      };
+
+      synth.speak(viUtter);
+    }, 380);
+  };
+
+  synth.speak(enUtter);
+}
+
+/* ================================================================
    HUD RENDERS
    ================================================================ */
 
 function renderLives() {
   const el = document.getElementById('livesEl');
+  if (G.mode === 'learn')      { el.textContent = '📚'; return; }
   if (G.mc.lives === Infinity) { el.textContent = '∞'; return; }
   const alive = Math.max(0, G.lives);
   const lost  = Math.max(0, G.maxLives - alive);
@@ -532,7 +655,8 @@ function renderLives() {
 }
 
 function renderScore() {
-  document.getElementById('scoreEl').textContent = G.score.toLocaleString();
+  const v = G.mode === 'learn' ? G.learnCount : G.score;
+  document.getElementById('scoreEl').textContent = v.toLocaleString();
 }
 
 function renderCombo() {
@@ -590,9 +714,13 @@ function spawnFloat(x, y, text) {
 function togglePause() {
   if (G.over) return;
   G.paused = !G.paused;
+  if (G.mode === 'learn') {
+    if (G.paused) window.speechSynthesis?.pause();
+    else window.speechSynthesis?.resume();
+  }
   document.getElementById('pauseOverlay').classList.toggle('hidden', !G.paused);
   document.getElementById('pauseBtn').textContent = G.paused ? '▶' : '⏸';
-  if (!G.paused) document.getElementById('gameInput').focus();
+  if (!G.paused && G.mode !== 'learn') document.getElementById('gameInput').focus();
 }
 
 /* ================================================================
@@ -633,13 +761,14 @@ function endGame(completed) {
 
 function restartGame() {
   stopGame();
-  // Remove remaining word elements
+  window.speechSynthesis?.cancel();
   document.querySelectorAll('.fw').forEach(el => el.remove());
   startGame();
 }
 
 function exitToMenu() {
   stopGame();
+  window.speechSynthesis?.cancel();
   document.querySelectorAll('.fw').forEach(el => el.remove());
   showScreen('startScreen');
   renderHighScores();

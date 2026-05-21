@@ -39,6 +39,11 @@
             <strong>Daily Challenge</strong>
             <span>25 từ hôm nay · chuỗi cố định</span>
           </button>
+          <button class="mode-card" data-mode="learn" onclick="selectMode('learn')">
+            <span class="card-icon">👁️</span>
+            <strong>Learn</strong>
+            <span>Xem & nghe · từng từ một · tự đọc EN + VI</span>
+          </button>
         </div>
       </div>
 
@@ -102,7 +107,7 @@
       <div class="field-danger" id="danger"></div>
     </div>
 
-    <!-- Typing area -->
+    <!-- Typing area (hidden in learn mode) -->
     <footer class="type-area" id="typeArea">
       <div class="type-hint" id="typeHint">Gõ từ tiếng Anh tương ứng...</div>
       <input
@@ -116,6 +121,12 @@
         spellcheck="false"
         oninput="onInput(event)"
       />
+    </footer>
+
+    <!-- Learn mode bar (shown only in learn mode) -->
+    <footer class="learn-bar" id="learnBar">
+      <div class="learn-status" id="learnStatus">👁️ Xem và nghe để học từ vựng...</div>
+      <div class="learn-counter" id="learnCounter">0 từ đã học</div>
     </footer>
 
     <!-- Pause overlay -->
