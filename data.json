@@ -1,0 +1,1232 @@
+[
+  {
+    "id": 1,
+    "category": "ISO Terms",
+    "english": "Corrective Action",
+    "vietnamese": "Hành động khắc phục",
+    "example": "Please submit the corrective action report within 7 business days.",
+    "example_vi": "Vui lòng nộp báo cáo hành động khắc phục trong vòng 7 ngày làm việc.",
+    "level": "Basic",
+    "tags": ["audit", "quality", "ISO 9001"]
+  },
+  {
+    "id": 2,
+    "category": "ISO Terms",
+    "english": "Preventive Action",
+    "vietnamese": "Hành động phòng ngừa",
+    "example": "We need to implement preventive actions to avoid recurrence of this issue.",
+    "example_vi": "Chúng ta cần thực hiện các hành động phòng ngừa để tránh tái phát vấn đề này.",
+    "level": "Basic",
+    "tags": ["audit", "quality", "ISO 9001"]
+  },
+  {
+    "id": 3,
+    "category": "ISO Terms",
+    "english": "Non-conformance",
+    "vietnamese": "Sự không phù hợp",
+    "example": "The auditor issued a non-conformance report for the missing calibration records.",
+    "example_vi": "Chuyên viên đánh giá đã phát hành báo cáo không phù hợp do thiếu hồ sơ hiệu chuẩn.",
+    "level": "Basic",
+    "tags": ["audit", "quality", "ISO 9001", "IATF 16949"]
+  },
+  {
+    "id": 4,
+    "category": "ISO Terms",
+    "english": "Document Control",
+    "vietnamese": "Kiểm soát tài liệu",
+    "example": "All engineering drawings must go through the document control process before release.",
+    "example_vi": "Tất cả bản vẽ kỹ thuật phải trải qua quy trình kiểm soát tài liệu trước khi ban hành.",
+    "level": "Basic",
+    "tags": ["quality", "ISO 9001"]
+  },
+  {
+    "id": 5,
+    "category": "ISO Terms",
+    "english": "Management Review",
+    "vietnamese": "Xem xét của lãnh đạo",
+    "example": "The management review meeting is scheduled for the last Friday of each quarter.",
+    "example_vi": "Cuộc họp xem xét của lãnh đạo được lên lịch vào thứ Sáu cuối mỗi quý.",
+    "level": "Intermediate",
+    "tags": ["quality", "ISO 9001", "meeting"]
+  },
+  {
+    "id": 6,
+    "category": "ISO Terms",
+    "english": "Internal Audit",
+    "vietnamese": "Đánh giá nội bộ",
+    "example": "The internal audit team will visit the production floor next Monday.",
+    "example_vi": "Nhóm đánh giá nội bộ sẽ đến khu vực sản xuất vào thứ Hai tới.",
+    "level": "Basic",
+    "tags": ["audit", "quality", "ISO 9001"]
+  },
+  {
+    "id": 7,
+    "category": "ISO Terms",
+    "english": "Continual Improvement",
+    "vietnamese": "Cải tiến liên tục",
+    "example": "Continual improvement is a core principle of ISO 9001 and our company policy.",
+    "example_vi": "Cải tiến liên tục là nguyên tắc cốt lõi của ISO 9001 và chính sách công ty chúng ta.",
+    "level": "Basic",
+    "tags": ["quality", "ISO 9001", "kaizen"]
+  },
+  {
+    "id": 8,
+    "category": "ISO Terms",
+    "english": "Risk Assessment",
+    "vietnamese": "Đánh giá rủi ro",
+    "example": "Please complete the risk assessment form before starting the new process.",
+    "example_vi": "Vui lòng hoàn thành biểu mẫu đánh giá rủi ro trước khi bắt đầu quy trình mới.",
+    "level": "Intermediate",
+    "tags": ["quality", "ISO 9001", "safety"]
+  },
+  {
+    "id": 9,
+    "category": "ISO Terms",
+    "english": "Customer Focus",
+    "vietnamese": "Định hướng khách hàng",
+    "example": "Customer focus means we must always prioritize customer requirements in our processes.",
+    "example_vi": "Định hướng khách hàng có nghĩa là chúng ta luôn phải ưu tiên yêu cầu của khách hàng trong quy trình.",
+    "level": "Basic",
+    "tags": ["quality", "ISO 9001"]
+  },
+  {
+    "id": 10,
+    "category": "ISO Terms",
+    "english": "Quality Policy",
+    "vietnamese": "Chính sách chất lượng",
+    "example": "All new employees must read and understand the company quality policy during orientation.",
+    "example_vi": "Tất cả nhân viên mới phải đọc và hiểu chính sách chất lượng của công ty trong buổi định hướng.",
+    "level": "Basic",
+    "tags": ["quality", "ISO 9001"]
+  },
+  {
+    "id": 11,
+    "category": "ISO Terms",
+    "english": "Quality Objective",
+    "vietnamese": "Mục tiêu chất lượng",
+    "example": "Our quality objective for this year is to reduce the defect rate below 100 PPM.",
+    "example_vi": "Mục tiêu chất lượng năm nay của chúng ta là giảm tỷ lệ lỗi xuống dưới 100 PPM.",
+    "level": "Intermediate",
+    "tags": ["quality", "ISO 9001"]
+  },
+  {
+    "id": 12,
+    "category": "ISO Terms",
+    "english": "Certification Body",
+    "vietnamese": "Tổ chức chứng nhận",
+    "example": "We selected Bureau Veritas as our certification body for ISO 9001 recertification.",
+    "example_vi": "Chúng ta đã chọn Bureau Veritas làm tổ chức chứng nhận cho việc tái chứng nhận ISO 9001.",
+    "level": "Intermediate",
+    "tags": ["audit", "ISO 9001"]
+  },
+  {
+    "id": 13,
+    "category": "ISO Terms",
+    "english": "Scope of Certification",
+    "vietnamese": "Phạm vi chứng nhận",
+    "example": "The scope of certification covers manufacturing and assembly of precision mechanical parts.",
+    "example_vi": "Phạm vi chứng nhận bao gồm việc sản xuất và lắp ráp các linh kiện cơ khí chính xác.",
+    "level": "Intermediate",
+    "tags": ["audit", "ISO 9001"]
+  },
+  {
+    "id": 14,
+    "category": "ISO Terms",
+    "english": "Surveillance Audit",
+    "vietnamese": "Đánh giá giám sát",
+    "example": "The surveillance audit is scheduled for March to verify our continued compliance.",
+    "example_vi": "Đánh giá giám sát được lên lịch vào tháng 3 để xác minh sự tuân thủ liên tục của chúng ta.",
+    "level": "Intermediate",
+    "tags": ["audit", "ISO 9001"]
+  },
+  {
+    "id": 15,
+    "category": "ISO Terms",
+    "english": "Interested Parties",
+    "vietnamese": "Các bên quan tâm",
+    "example": "Interested parties include customers, employees, suppliers, and regulatory authorities.",
+    "example_vi": "Các bên quan tâm bao gồm khách hàng, nhân viên, nhà cung cấp và cơ quan quản lý.",
+    "level": "Advanced",
+    "tags": ["quality", "ISO 9001", "ISO 14001"]
+  },
+  {
+    "id": 16,
+    "category": "Audit",
+    "english": "Audit Finding",
+    "vietnamese": "Kết quả / Phát hiện đánh giá",
+    "example": "The audit finding requires a written response within 30 days of receipt.",
+    "example_vi": "Kết quả đánh giá yêu cầu phản hồi bằng văn bản trong vòng 30 ngày kể từ khi nhận.",
+    "level": "Basic",
+    "tags": ["audit", "quality"]
+  },
+  {
+    "id": 17,
+    "category": "Audit",
+    "english": "Major Non-conformance",
+    "vietnamese": "Sự không phù hợp nghiêm trọng",
+    "example": "A major non-conformance was raised due to the absence of a process control procedure.",
+    "example_vi": "Sự không phù hợp nghiêm trọng được phát hành do thiếu thủ tục kiểm soát quy trình.",
+    "level": "Intermediate",
+    "tags": ["audit", "quality"]
+  },
+  {
+    "id": 18,
+    "category": "Audit",
+    "english": "Minor Non-conformance",
+    "vietnamese": "Sự không phù hợp nhỏ",
+    "example": "The minor non-conformance about document revision date was closed within two weeks.",
+    "example_vi": "Sự không phù hợp nhỏ về ngày sửa đổi tài liệu đã được đóng trong vòng hai tuần.",
+    "level": "Intermediate",
+    "tags": ["audit", "quality"]
+  },
+  {
+    "id": 19,
+    "category": "Audit",
+    "english": "Observation",
+    "vietnamese": "Nhận xét / Quan sát",
+    "example": "The auditor made an observation that the 5S labels were faded and needed replacement.",
+    "example_vi": "Chuyên viên đánh giá đã đưa ra nhận xét rằng nhãn 5S bị mờ và cần thay thế.",
+    "level": "Basic",
+    "tags": ["audit"]
+  },
+  {
+    "id": 20,
+    "category": "Audit",
+    "english": "Auditee",
+    "vietnamese": "Bên được đánh giá",
+    "example": "As the auditee, please prepare all relevant records before the audit visit.",
+    "example_vi": "Với tư cách là bên được đánh giá, vui lòng chuẩn bị tất cả hồ sơ liên quan trước chuyến thăm đánh giá.",
+    "level": "Basic",
+    "tags": ["audit"]
+  },
+  {
+    "id": 21,
+    "category": "Audit",
+    "english": "Auditor",
+    "vietnamese": "Chuyên viên đánh giá",
+    "example": "Our lead auditor has 10 years of experience in the automotive industry.",
+    "example_vi": "Trưởng nhóm đánh giá của chúng ta có 10 năm kinh nghiệm trong ngành ô tô.",
+    "level": "Basic",
+    "tags": ["audit"]
+  },
+  {
+    "id": 22,
+    "category": "Audit",
+    "english": "Audit Checklist",
+    "vietnamese": "Bảng kiểm tra đánh giá",
+    "example": "Please review the audit checklist and prepare evidence for each item.",
+    "example_vi": "Vui lòng xem lại bảng kiểm tra đánh giá và chuẩn bị bằng chứng cho từng mục.",
+    "level": "Basic",
+    "tags": ["audit"]
+  },
+  {
+    "id": 23,
+    "category": "Audit",
+    "english": "Root Cause Analysis",
+    "vietnamese": "Phân tích nguyên nhân gốc rễ",
+    "example": "The root cause analysis identified inadequate operator training as the primary issue.",
+    "example_vi": "Phân tích nguyên nhân gốc rễ xác định việc đào tạo người vận hành không đầy đủ là vấn đề chính.",
+    "level": "Intermediate",
+    "tags": ["audit", "quality"]
+  },
+  {
+    "id": 24,
+    "category": "Audit",
+    "english": "Evidence",
+    "vietnamese": "Bằng chứng / Chứng cứ",
+    "example": "Please provide objective evidence that the procedure is being followed correctly.",
+    "example_vi": "Vui lòng cung cấp bằng chứng khách quan rằng thủ tục đang được tuân thủ đúng cách.",
+    "level": "Basic",
+    "tags": ["audit", "quality"]
+  },
+  {
+    "id": 25,
+    "category": "Audit",
+    "english": "Closing Meeting",
+    "vietnamese": "Cuộc họp kết thúc đánh giá",
+    "example": "The audit closing meeting will summarize all findings and observations.",
+    "example_vi": "Cuộc họp kết thúc đánh giá sẽ tóm tắt tất cả kết quả và nhận xét.",
+    "level": "Intermediate",
+    "tags": ["audit", "meeting"]
+  },
+  {
+    "id": 26,
+    "category": "Quality Control",
+    "english": "Inspection",
+    "vietnamese": "Kiểm tra / Kiểm soát",
+    "example": "Incoming inspection must be completed before parts are moved to the warehouse.",
+    "example_vi": "Kiểm tra đầu vào phải được hoàn thành trước khi linh kiện được chuyển vào kho.",
+    "level": "Basic",
+    "tags": ["quality", "QC"]
+  },
+  {
+    "id": 27,
+    "category": "Quality Control",
+    "english": "Sampling Plan",
+    "vietnamese": "Kế hoạch lấy mẫu",
+    "example": "We follow AQL 1.0 sampling plan for all critical dimension inspections.",
+    "example_vi": "Chúng ta áp dụng kế hoạch lấy mẫu AQL 1.0 cho tất cả kiểm tra kích thước quan trọng.",
+    "level": "Intermediate",
+    "tags": ["quality", "QC"]
+  },
+  {
+    "id": 28,
+    "category": "Quality Control",
+    "english": "Defect",
+    "vietnamese": "Khuyết tật / Lỗi",
+    "example": "Any defect found during in-process inspection must be tagged and quarantined immediately.",
+    "example_vi": "Bất kỳ khuyết tật nào được phát hiện trong quá trình kiểm tra phải được dán nhãn và cách ly ngay lập tức.",
+    "level": "Basic",
+    "tags": ["quality", "QC", "production"]
+  },
+  {
+    "id": 29,
+    "category": "Quality Control",
+    "english": "Tolerance",
+    "vietnamese": "Dung sai",
+    "example": "The tolerance for this shaft diameter is ±0.02mm as specified on the drawing.",
+    "example_vi": "Dung sai cho đường kính trục này là ±0.02mm theo quy định trên bản vẽ.",
+    "level": "Basic",
+    "tags": ["quality", "QC", "mechanical"]
+  },
+  {
+    "id": 30,
+    "category": "Quality Control",
+    "english": "Specification",
+    "vietnamese": "Thông số kỹ thuật / Tiêu chí",
+    "example": "The material specification requires hardness between HRC 58-62.",
+    "example_vi": "Thông số kỹ thuật vật liệu yêu cầu độ cứng từ HRC 58-62.",
+    "level": "Basic",
+    "tags": ["quality", "QC", "mechanical"]
+  },
+  {
+    "id": 31,
+    "category": "Quality Control",
+    "english": "First Article Inspection",
+    "vietnamese": "Kiểm tra mẫu đầu tiên",
+    "example": "First article inspection approval is required before mass production can begin.",
+    "example_vi": "Phê duyệt kiểm tra mẫu đầu tiên là bắt buộc trước khi sản xuất hàng loạt có thể bắt đầu.",
+    "level": "Intermediate",
+    "tags": ["quality", "QC", "IATF 16949"]
+  },
+  {
+    "id": 32,
+    "category": "Quality Control",
+    "english": "Control Chart",
+    "vietnamese": "Biểu đồ kiểm soát",
+    "example": "The control chart shows that the process is stable and within control limits.",
+    "example_vi": "Biểu đồ kiểm soát cho thấy quy trình ổn định và nằm trong giới hạn kiểm soát.",
+    "level": "Advanced",
+    "tags": ["quality", "QC", "SPC"]
+  },
+  {
+    "id": 33,
+    "category": "Quality Control",
+    "english": "Calibration",
+    "vietnamese": "Hiệu chuẩn",
+    "example": "All measurement equipment must have a valid calibration certificate before use.",
+    "example_vi": "Tất cả thiết bị đo lường phải có chứng chỉ hiệu chuẩn hợp lệ trước khi sử dụng.",
+    "level": "Basic",
+    "tags": ["quality", "QC"]
+  },
+  {
+    "id": 34,
+    "category": "Quality Control",
+    "english": "Traceability",
+    "vietnamese": "Truy xuất nguồn gốc",
+    "example": "Each part must have a lot number to ensure full traceability from raw material to shipment.",
+    "example_vi": "Mỗi linh kiện phải có số lô để đảm bảo truy xuất nguồn gốc đầy đủ từ nguyên liệu đến lô hàng.",
+    "level": "Intermediate",
+    "tags": ["quality", "QC", "IATF 16949"]
+  },
+  {
+    "id": 35,
+    "category": "Quality Control",
+    "english": "Rework",
+    "vietnamese": "Gia công lại",
+    "example": "Parts with minor surface defects were sent for rework before final inspection.",
+    "example_vi": "Các linh kiện có khuyết tật bề mặt nhỏ được gửi đi gia công lại trước khi kiểm tra cuối cùng.",
+    "level": "Basic",
+    "tags": ["quality", "QC", "production"]
+  },
+  {
+    "id": 36,
+    "category": "Quality Control",
+    "english": "Scrap",
+    "vietnamese": "Phế phẩm",
+    "example": "The scrap rate increased to 3% due to a worn cutting tool last week.",
+    "example_vi": "Tỷ lệ phế phẩm tăng lên 3% do dao cắt bị mòn tuần trước.",
+    "level": "Basic",
+    "tags": ["quality", "QC", "production"]
+  },
+  {
+    "id": 37,
+    "category": "Quality Control",
+    "english": "Yield Rate",
+    "vietnamese": "Tỷ lệ đạt / Tỷ lệ yield",
+    "example": "Our target yield rate for this part number is 97% or above.",
+    "example_vi": "Tỷ lệ yield mục tiêu của chúng ta cho số hiệu chi tiết này là 97% trở lên.",
+    "level": "Intermediate",
+    "tags": ["quality", "QC", "production"]
+  },
+  {
+    "id": 38,
+    "category": "Quality Control",
+    "english": "PPM (Parts Per Million)",
+    "vietnamese": "Phần triệu lỗi",
+    "example": "Our customer requires a defect level below 50 PPM for all critical parts.",
+    "example_vi": "Khách hàng của chúng ta yêu cầu mức lỗi dưới 50 PPM cho tất cả linh kiện quan trọng.",
+    "level": "Advanced",
+    "tags": ["quality", "QC", "IATF 16949"]
+  },
+  {
+    "id": 39,
+    "category": "Quality Control",
+    "english": "Hold Tag",
+    "vietnamese": "Thẻ tạm giữ / Nhãn giữ hàng",
+    "example": "Please attach a red hold tag to all suspected non-conforming parts.",
+    "example_vi": "Vui lòng dán nhãn giữ hàng màu đỏ vào tất cả linh kiện bị nghi ngờ không phù hợp.",
+    "level": "Basic",
+    "tags": ["quality", "QC"]
+  },
+  {
+    "id": 40,
+    "category": "Quality Control",
+    "english": "PPAP (Production Part Approval Process)",
+    "vietnamese": "Quá trình phê duyệt sản phẩm sản xuất",
+    "example": "Full PPAP submission with level 3 documents is required for new part approval.",
+    "example_vi": "Hồ sơ PPAP đầy đủ với tài liệu cấp độ 3 được yêu cầu để phê duyệt linh kiện mới.",
+    "level": "Advanced",
+    "tags": ["quality", "IATF 16949", "automotive"]
+  },
+  {
+    "id": 41,
+    "category": "Production",
+    "english": "Work Order",
+    "vietnamese": "Lệnh sản xuất / Lệnh công việc",
+    "example": "The work order for batch #2024-567 must be completed by Friday afternoon.",
+    "example_vi": "Lệnh sản xuất cho lô #2024-567 phải hoàn thành trước chiều thứ Sáu.",
+    "level": "Basic",
+    "tags": ["production"]
+  },
+  {
+    "id": 42,
+    "category": "Production",
+    "english": "Production Schedule",
+    "vietnamese": "Lịch sản xuất / Kế hoạch sản xuất",
+    "example": "Please review the production schedule and confirm if we can meet the customer delivery date.",
+    "example_vi": "Vui lòng xem lại lịch sản xuất và xác nhận xem chúng ta có thể đáp ứng ngày giao hàng cho khách hàng không.",
+    "level": "Basic",
+    "tags": ["production", "planning"]
+  },
+  {
+    "id": 43,
+    "category": "Production",
+    "english": "Cycle Time",
+    "vietnamese": "Thời gian chu kỳ",
+    "example": "The current cycle time per part is 45 seconds; our target is to reduce it to 38 seconds.",
+    "example_vi": "Thời gian chu kỳ hiện tại mỗi linh kiện là 45 giây; mục tiêu của chúng ta là giảm xuống còn 38 giây.",
+    "level": "Intermediate",
+    "tags": ["production", "kaizen"]
+  },
+  {
+    "id": 44,
+    "category": "Production",
+    "english": "Downtime",
+    "vietnamese": "Thời gian dừng máy / Thời gian chết",
+    "example": "Unplanned downtime due to machine breakdown cost us 3 hours of production today.",
+    "example_vi": "Thời gian dừng máy ngoài kế hoạch do sự cố máy khiến chúng ta mất 3 giờ sản xuất hôm nay.",
+    "level": "Intermediate",
+    "tags": ["production"]
+  },
+  {
+    "id": 45,
+    "category": "Production",
+    "english": "OEE (Overall Equipment Effectiveness)",
+    "vietnamese": "Hiệu quả thiết bị tổng thể",
+    "example": "This month's OEE is 72%, which is below our target of 85%.",
+    "example_vi": "OEE tháng này là 72%, thấp hơn mục tiêu 85% của chúng ta.",
+    "level": "Advanced",
+    "tags": ["production", "kaizen"]
+  },
+  {
+    "id": 46,
+    "category": "Production",
+    "english": "Changeover",
+    "vietnamese": "Chuyển đổi sản xuất / Setup máy",
+    "example": "We need to reduce changeover time from 2 hours to 30 minutes using SMED methodology.",
+    "example_vi": "Chúng ta cần giảm thời gian chuyển đổi từ 2 giờ xuống 30 phút bằng phương pháp SMED.",
+    "level": "Advanced",
+    "tags": ["production", "kaizen"]
+  },
+  {
+    "id": 47,
+    "category": "Production",
+    "english": "Work-in-Process (WIP)",
+    "vietnamese": "Sản phẩm dở dang",
+    "example": "Excessive WIP between stations indicates a bottleneck in the production flow.",
+    "example_vi": "WIP quá nhiều giữa các công đoạn cho thấy có nút thắt cổ chai trong dòng sản xuất.",
+    "level": "Intermediate",
+    "tags": ["production"]
+  },
+  {
+    "id": 48,
+    "category": "Production",
+    "english": "Throughput",
+    "vietnamese": "Sản lượng / Năng suất đầu ra",
+    "example": "We must increase daily throughput by 15% to meet this month's delivery target.",
+    "example_vi": "Chúng ta phải tăng sản lượng hàng ngày lên 15% để đáp ứng mục tiêu giao hàng tháng này.",
+    "level": "Intermediate",
+    "tags": ["production"]
+  },
+  {
+    "id": 49,
+    "category": "Production",
+    "english": "Standard Operating Procedure",
+    "vietnamese": "Quy trình vận hành chuẩn",
+    "example": "The standard operating procedure for this machine must be posted at the workstation.",
+    "example_vi": "Quy trình vận hành chuẩn cho máy này phải được dán tại trạm làm việc.",
+    "level": "Basic",
+    "tags": ["production", "quality"]
+  },
+  {
+    "id": 50,
+    "category": "Production",
+    "english": "Takt Time",
+    "vietnamese": "Thời gian nhịp sản xuất",
+    "example": "With a customer demand of 500 units per day in 8 hours, the takt time is 57.6 seconds.",
+    "example_vi": "Với nhu cầu khách hàng 500 đơn vị mỗi ngày trong 8 giờ, thời gian nhịp là 57,6 giây.",
+    "level": "Advanced",
+    "tags": ["production", "kaizen"]
+  },
+  {
+    "id": 51,
+    "category": "Mechanical Parts",
+    "english": "Bolt",
+    "vietnamese": "Bu lông",
+    "example": "Please use M8 bolts with a torque of 25 Nm when assembling the bracket.",
+    "example_vi": "Vui lòng sử dụng bu lông M8 với momen siết 25 Nm khi lắp ráp giá đỡ.",
+    "level": "Basic",
+    "tags": ["mechanical", "assembly"]
+  },
+  {
+    "id": 52,
+    "category": "Mechanical Parts",
+    "english": "Bearing",
+    "vietnamese": "Vòng bi / Bạc đạn",
+    "example": "The bearing must be replaced every 5,000 operating hours as part of preventive maintenance.",
+    "example_vi": "Vòng bi phải được thay thế sau mỗi 5.000 giờ vận hành như một phần bảo trì phòng ngừa.",
+    "level": "Basic",
+    "tags": ["mechanical", "maintenance"]
+  },
+  {
+    "id": 53,
+    "category": "Mechanical Parts",
+    "english": "Shaft",
+    "vietnamese": "Trục",
+    "example": "The shaft diameter tolerance is specified as 25h6, which means 25.000 to 24.987mm.",
+    "example_vi": "Dung sai đường kính trục được chỉ định là 25h6, tức là từ 25,000 đến 24,987mm.",
+    "level": "Intermediate",
+    "tags": ["mechanical"]
+  },
+  {
+    "id": 54,
+    "category": "Mechanical Parts",
+    "english": "Gear",
+    "vietnamese": "Bánh răng",
+    "example": "The gear teeth must be inspected for wear after every 10,000 cycles.",
+    "example_vi": "Răng của bánh răng phải được kiểm tra độ mòn sau mỗi 10.000 chu kỳ.",
+    "level": "Basic",
+    "tags": ["mechanical"]
+  },
+  {
+    "id": 55,
+    "category": "Mechanical Parts",
+    "english": "Bracket",
+    "vietnamese": "Giá đỡ / Thanh đỡ",
+    "example": "The mounting bracket must withstand a maximum load of 500 kg.",
+    "example_vi": "Giá đỡ lắp đặt phải chịu được tải trọng tối đa 500 kg.",
+    "level": "Basic",
+    "tags": ["mechanical", "assembly"]
+  },
+  {
+    "id": 56,
+    "category": "Mechanical Parts",
+    "english": "Gasket",
+    "vietnamese": "Gioăng / Đệm làm kín",
+    "example": "Replace the gasket whenever you remove the cylinder head to prevent oil leaks.",
+    "example_vi": "Thay gioăng bất cứ khi nào bạn tháo nắp xi lanh để ngăn rò rỉ dầu.",
+    "level": "Basic",
+    "tags": ["mechanical", "maintenance"]
+  },
+  {
+    "id": 57,
+    "category": "Mechanical Parts",
+    "english": "Bushing",
+    "vietnamese": "Bạc lót / Bạc đồng",
+    "example": "The bronze bushing needs to be press-fitted with 0.01mm interference.",
+    "example_vi": "Bạc lót đồng cần được ép vào với độ dôi 0,01mm.",
+    "level": "Intermediate",
+    "tags": ["mechanical"]
+  },
+  {
+    "id": 58,
+    "category": "Mechanical Parts",
+    "english": "Surface Roughness",
+    "vietnamese": "Độ nhám bề mặt",
+    "example": "The sealing surface requires a maximum surface roughness of Ra 0.8μm.",
+    "example_vi": "Bề mặt làm kín yêu cầu độ nhám bề mặt tối đa Ra 0,8μm.",
+    "level": "Advanced",
+    "tags": ["mechanical", "quality"]
+  },
+  {
+    "id": 59,
+    "category": "Mechanical Parts",
+    "english": "Hardness",
+    "vietnamese": "Độ cứng",
+    "example": "After heat treatment, the hardness must be between HRC 60 and 64.",
+    "example_vi": "Sau khi nhiệt luyện, độ cứng phải nằm trong khoảng HRC 60 đến 64.",
+    "level": "Intermediate",
+    "tags": ["mechanical", "quality"]
+  },
+  {
+    "id": 60,
+    "category": "Mechanical Parts",
+    "english": "Assembly Drawing",
+    "vietnamese": "Bản vẽ lắp ráp",
+    "example": "Please refer to the assembly drawing rev.C before starting the installation.",
+    "example_vi": "Vui lòng tham khảo bản vẽ lắp ráp rev.C trước khi bắt đầu lắp đặt.",
+    "level": "Basic",
+    "tags": ["mechanical", "production"]
+  },
+  {
+    "id": 61,
+    "category": "Purchasing",
+    "english": "Purchase Order",
+    "vietnamese": "Đơn đặt hàng",
+    "example": "Please issue a purchase order for 500 units of M6 bolts to our approved supplier.",
+    "example_vi": "Vui lòng phát hành đơn đặt hàng 500 cái bu lông M6 cho nhà cung cấp được chấp thuận của chúng ta.",
+    "level": "Basic",
+    "tags": ["purchasing", "SCM"]
+  },
+  {
+    "id": 62,
+    "category": "Purchasing",
+    "english": "Request for Quotation (RFQ)",
+    "vietnamese": "Yêu cầu báo giá",
+    "example": "We need to send an RFQ to three suppliers and compare the quotes by next Tuesday.",
+    "example_vi": "Chúng ta cần gửi yêu cầu báo giá đến ba nhà cung cấp và so sánh các báo giá trước thứ Ba tới.",
+    "level": "Basic",
+    "tags": ["purchasing", "SCM"]
+  },
+  {
+    "id": 63,
+    "category": "Purchasing",
+    "english": "Bill of Materials (BOM)",
+    "vietnamese": "Danh sách vật tư / Phiếu BOM",
+    "example": "The engineering team released the BOM for the new model with 47 line items.",
+    "example_vi": "Nhóm kỹ thuật đã phát hành BOM cho mẫu mới với 47 mục vật tư.",
+    "level": "Intermediate",
+    "tags": ["purchasing", "production", "engineering"]
+  },
+  {
+    "id": 64,
+    "category": "Purchasing",
+    "english": "Safety Stock",
+    "vietnamese": "Tồn kho an toàn",
+    "example": "We maintain a safety stock of 2 weeks supply to protect against supply disruptions.",
+    "example_vi": "Chúng ta duy trì tồn kho an toàn tương đương 2 tuần cung ứng để bảo vệ trước sự gián đoạn nguồn cung.",
+    "level": "Intermediate",
+    "tags": ["purchasing", "SCM", "logistics"]
+  },
+  {
+    "id": 65,
+    "category": "Purchasing",
+    "english": "MOQ (Minimum Order Quantity)",
+    "vietnamese": "Số lượng đặt hàng tối thiểu",
+    "example": "The supplier's MOQ for this bearing is 100 pieces per order.",
+    "example_vi": "MOQ của nhà cung cấp cho vòng bi này là 100 cái mỗi đơn hàng.",
+    "level": "Basic",
+    "tags": ["purchasing", "SCM"]
+  },
+  {
+    "id": 66,
+    "category": "Purchasing",
+    "english": "Payment Terms",
+    "vietnamese": "Điều khoản thanh toán",
+    "example": "Our standard payment terms are Net 60 days from invoice date.",
+    "example_vi": "Điều khoản thanh toán tiêu chuẩn của chúng ta là 60 ngày kể từ ngày hóa đơn.",
+    "level": "Intermediate",
+    "tags": ["purchasing"]
+  },
+  {
+    "id": 67,
+    "category": "Purchasing",
+    "english": "Lead Time",
+    "vietnamese": "Thời gian giao hàng / Thời gian dẫn",
+    "example": "The supplier confirmed a lead time of 6 weeks for the special-order parts.",
+    "example_vi": "Nhà cung cấp xác nhận thời gian giao hàng 6 tuần cho các linh kiện đặt hàng đặc biệt.",
+    "level": "Basic",
+    "tags": ["purchasing", "SCM", "logistics"]
+  },
+  {
+    "id": 68,
+    "category": "Purchasing",
+    "english": "Price Negotiation",
+    "vietnamese": "Đàm phán giá cả",
+    "example": "We aim to achieve a 5% cost reduction through price negotiation with key suppliers.",
+    "example_vi": "Chúng ta nhắm đến việc đạt được mức giảm chi phí 5% thông qua đàm phán giá với các nhà cung cấp chủ chốt.",
+    "level": "Intermediate",
+    "tags": ["purchasing"]
+  },
+  {
+    "id": 69,
+    "category": "Logistics",
+    "english": "Delivery Note",
+    "vietnamese": "Phiếu giao hàng",
+    "example": "Please sign the delivery note to confirm that all items have been received in good condition.",
+    "example_vi": "Vui lòng ký phiếu giao hàng để xác nhận rằng tất cả hàng hóa đã được nhận trong tình trạng tốt.",
+    "level": "Basic",
+    "tags": ["logistics", "purchasing"]
+  },
+  {
+    "id": 70,
+    "category": "Logistics",
+    "english": "Packing List",
+    "vietnamese": "Danh sách đóng gói",
+    "example": "The packing list must show part number, quantity, lot number, and box number.",
+    "example_vi": "Danh sách đóng gói phải hiển thị số linh kiện, số lượng, số lô và số thùng.",
+    "level": "Basic",
+    "tags": ["logistics"]
+  },
+  {
+    "id": 71,
+    "category": "Logistics",
+    "english": "Customs Clearance",
+    "vietnamese": "Thông quan hải quan",
+    "example": "Delays in customs clearance pushed the delivery back by three days.",
+    "example_vi": "Sự chậm trễ trong thông quan hải quan đã làm lùi ngày giao hàng ba ngày.",
+    "level": "Intermediate",
+    "tags": ["logistics"]
+  },
+  {
+    "id": 72,
+    "category": "Logistics",
+    "english": "Freight Forwarder",
+    "vietnamese": "Công ty giao nhận vận tải",
+    "example": "Our freight forwarder handles all international shipments from Japan.",
+    "example_vi": "Công ty giao nhận vận tải của chúng ta xử lý tất cả các lô hàng quốc tế từ Nhật Bản.",
+    "level": "Intermediate",
+    "tags": ["logistics"]
+  },
+  {
+    "id": 73,
+    "category": "Logistics",
+    "english": "ETA (Estimated Time of Arrival)",
+    "vietnamese": "Thời gian dự kiến đến nơi",
+    "example": "The ETA for the shipment from Japan is next Wednesday morning.",
+    "example_vi": "Thời gian dự kiến đến nơi của lô hàng từ Nhật Bản là sáng thứ Tư tới.",
+    "level": "Basic",
+    "tags": ["logistics"]
+  },
+  {
+    "id": 74,
+    "category": "Logistics",
+    "english": "Inventory Management",
+    "vietnamese": "Quản lý tồn kho",
+    "example": "Good inventory management reduces carrying costs and prevents stockouts.",
+    "example_vi": "Quản lý tồn kho tốt giúp giảm chi phí lưu kho và ngăn tình trạng hết hàng.",
+    "level": "Intermediate",
+    "tags": ["logistics", "SCM"]
+  },
+  {
+    "id": 75,
+    "category": "Logistics",
+    "english": "Incoterms",
+    "vietnamese": "Điều kiện thương mại quốc tế",
+    "example": "The contract specifies FOB (Free On Board) Incoterms, so the risk transfers at the port.",
+    "example_vi": "Hợp đồng quy định điều kiện FOB (Miễn phí trên tàu), do đó rủi ro chuyển giao tại cảng.",
+    "level": "Advanced",
+    "tags": ["logistics", "purchasing"]
+  },
+  {
+    "id": 76,
+    "category": "Kaizen",
+    "english": "5S",
+    "vietnamese": "5S (Sàng lọc, Sắp xếp, Sạch sẽ, Săn sóc, Sẵn sàng)",
+    "example": "5S activities will be conducted every Friday afternoon before the end of the shift.",
+    "example_vi": "Hoạt động 5S sẽ được tiến hành vào mỗi chiều thứ Sáu trước khi kết thúc ca làm việc.",
+    "level": "Basic",
+    "tags": ["kaizen", "production"]
+  },
+  {
+    "id": 77,
+    "category": "Kaizen",
+    "english": "Muda (Waste)",
+    "vietnamese": "Lãng phí",
+    "example": "We identified 7 types of muda on the production line during the value stream mapping exercise.",
+    "example_vi": "Chúng ta đã xác định được 7 loại lãng phí trên dây chuyền sản xuất trong bài tập lập bản đồ dòng giá trị.",
+    "level": "Intermediate",
+    "tags": ["kaizen", "lean"]
+  },
+  {
+    "id": 78,
+    "category": "Kaizen",
+    "english": "Gemba Walk",
+    "vietnamese": "Đi thực tế / Kiểm tra tại hiện trường",
+    "example": "The plant manager conducts a gemba walk every morning to observe actual conditions.",
+    "example_vi": "Giám đốc nhà máy thực hiện đi thực tế mỗi sáng để quan sát tình trạng thực tế.",
+    "level": "Intermediate",
+    "tags": ["kaizen", "lean"]
+  },
+  {
+    "id": 79,
+    "category": "Kaizen",
+    "english": "PDCA Cycle",
+    "vietnamese": "Vòng tròn PDCA (Lập kế hoạch-Thực hiện-Kiểm tra-Hành động)",
+    "example": "Use the PDCA cycle to systematically implement and verify all improvement activities.",
+    "example_vi": "Sử dụng vòng tròn PDCA để thực hiện và xác minh một cách có hệ thống tất cả các hoạt động cải tiến.",
+    "level": "Basic",
+    "tags": ["kaizen", "quality"]
+  },
+  {
+    "id": 80,
+    "category": "Kaizen",
+    "english": "Poka-yoke",
+    "vietnamese": "Chống sai lỗi / Phòng chống lỗi",
+    "example": "A poka-yoke jig was designed to prevent parts from being loaded in the wrong orientation.",
+    "example_vi": "Một đồ gá poka-yoke được thiết kế để ngăn chặn việc lắp linh kiện sai chiều.",
+    "level": "Intermediate",
+    "tags": ["kaizen", "quality", "production"]
+  },
+  {
+    "id": 81,
+    "category": "Kaizen",
+    "english": "Kanban",
+    "vietnamese": "Thẻ Kanban / Hệ thống kéo",
+    "example": "The kanban card signals that inventory has reached the reorder point and a new order is needed.",
+    "example_vi": "Thẻ kanban báo hiệu rằng tồn kho đã đến điểm đặt hàng lại và cần đặt hàng mới.",
+    "level": "Intermediate",
+    "tags": ["kaizen", "lean", "logistics"]
+  },
+  {
+    "id": 82,
+    "category": "Kaizen",
+    "english": "Value Stream Mapping",
+    "vietnamese": "Lập bản đồ dòng giá trị",
+    "example": "Value stream mapping revealed that 70% of our lead time is non-value-added waiting time.",
+    "example_vi": "Lập bản đồ dòng giá trị cho thấy 70% thời gian dẫn của chúng ta là thời gian chờ không tạo giá trị.",
+    "level": "Advanced",
+    "tags": ["kaizen", "lean"]
+  },
+  {
+    "id": 83,
+    "category": "Kaizen",
+    "english": "Standardized Work",
+    "vietnamese": "Công việc được tiêu chuẩn hóa",
+    "example": "Standardized work documents must be updated whenever a process improvement is implemented.",
+    "example_vi": "Tài liệu công việc được tiêu chuẩn hóa phải được cập nhật bất cứ khi nào có cải tiến quy trình.",
+    "level": "Intermediate",
+    "tags": ["kaizen", "production", "quality"]
+  },
+  {
+    "id": 84,
+    "category": "QCC",
+    "english": "QCC (Quality Control Circle)",
+    "vietnamese": "Nhóm kiểm soát chất lượng / Nhóm QCC",
+    "example": "Our QCC team of 6 members meets every Tuesday to address quality improvement topics.",
+    "example_vi": "Nhóm QCC gồm 6 thành viên của chúng ta họp mỗi thứ Ba để giải quyết các chủ đề cải thiện chất lượng.",
+    "level": "Basic",
+    "tags": ["QCC", "quality", "kaizen"]
+  },
+  {
+    "id": 85,
+    "category": "QCC",
+    "english": "Fishbone Diagram",
+    "vietnamese": "Biểu đồ xương cá / Biểu đồ Ishikawa",
+    "example": "The fishbone diagram helped us identify 12 possible causes for the dimensional variation.",
+    "example_vi": "Biểu đồ xương cá đã giúp chúng ta xác định 12 nguyên nhân có thể gây ra sự biến thiên kích thước.",
+    "level": "Intermediate",
+    "tags": ["QCC", "quality"]
+  },
+  {
+    "id": 86,
+    "category": "QCC",
+    "english": "Pareto Chart",
+    "vietnamese": "Biểu đồ Pareto / Biểu đồ Pareto",
+    "example": "The Pareto chart shows that burrs and scratches account for 75% of all defects.",
+    "example_vi": "Biểu đồ Pareto cho thấy ba via và vết xước chiếm 75% tổng số lỗi.",
+    "level": "Intermediate",
+    "tags": ["QCC", "quality"]
+  },
+  {
+    "id": 87,
+    "category": "QCC",
+    "english": "Brainstorming",
+    "vietnamese": "Động não / Thảo luận ý tưởng",
+    "example": "During brainstorming, all ideas are welcome — no criticism or evaluation at this stage.",
+    "example_vi": "Trong giai đoạn động não, mọi ý tưởng đều được chào đón — không có sự phê bình hay đánh giá ở giai đoạn này.",
+    "level": "Basic",
+    "tags": ["QCC", "meeting"]
+  },
+  {
+    "id": 88,
+    "category": "QCC",
+    "english": "Action Plan",
+    "vietnamese": "Kế hoạch hành động",
+    "example": "Please complete the action plan with PIC and due date for each improvement item.",
+    "example_vi": "Vui lòng hoàn thành kế hoạch hành động với người phụ trách và hạn chót cho từng mục cải tiến.",
+    "level": "Basic",
+    "tags": ["QCC", "kaizen", "meeting"]
+  },
+  {
+    "id": 89,
+    "category": "QCC",
+    "english": "Presentation (QCC)",
+    "vietnamese": "Trình bày / Báo cáo thành quả QCC",
+    "example": "Our QCC team will present the improvement results at the company convention in December.",
+    "example_vi": "Nhóm QCC của chúng ta sẽ trình bày kết quả cải tiến tại hội nghị công ty vào tháng 12.",
+    "level": "Basic",
+    "tags": ["QCC", "meeting"]
+  },
+  {
+    "id": 90,
+    "category": "Office Email",
+    "english": "Please be advised",
+    "vietnamese": "Xin lưu ý / Xin được thông báo",
+    "example": "Please be advised that the factory will be closed on national holidays next week.",
+    "example_vi": "Xin lưu ý rằng nhà máy sẽ đóng cửa vào các ngày lễ quốc gia tuần tới.",
+    "level": "Basic",
+    "tags": ["email", "office", "Japanese company"]
+  },
+  {
+    "id": 91,
+    "category": "Office Email",
+    "english": "As per your request",
+    "vietnamese": "Theo yêu cầu của bạn / Như yêu cầu",
+    "example": "As per your request, please find the updated quotation attached to this email.",
+    "example_vi": "Theo yêu cầu của bạn, vui lòng xem báo giá cập nhật đính kèm trong email này.",
+    "level": "Basic",
+    "tags": ["email", "office"]
+  },
+  {
+    "id": 92,
+    "category": "Office Email",
+    "english": "Please find attached",
+    "vietnamese": "Vui lòng xem tệp đính kèm",
+    "example": "Please find attached the corrective action report for your review and approval.",
+    "example_vi": "Vui lòng xem tệp đính kèm báo cáo hành động khắc phục để bạn xem xét và phê duyệt.",
+    "level": "Basic",
+    "tags": ["email", "office"]
+  },
+  {
+    "id": 93,
+    "category": "Office Email",
+    "english": "I would like to follow up",
+    "vietnamese": "Tôi muốn theo dõi / Tôi muốn nhắc lại",
+    "example": "I would like to follow up on the inspection report submitted last Friday.",
+    "example_vi": "Tôi muốn theo dõi về báo cáo kiểm tra được gửi vào thứ Sáu tuần trước.",
+    "level": "Basic",
+    "tags": ["email", "office", "Japanese company"]
+  },
+  {
+    "id": 94,
+    "category": "Office Email",
+    "english": "For your information (FYI)",
+    "vietnamese": "Để biết thông tin / Thông tin tham khảo",
+    "example": "FYI, the customer has requested an emergency delivery for next Wednesday.",
+    "example_vi": "Để biết thông tin, khách hàng đã yêu cầu giao hàng khẩn cấp vào thứ Tư tới.",
+    "level": "Basic",
+    "tags": ["email", "office"]
+  },
+  {
+    "id": 95,
+    "category": "Office Email",
+    "english": "Kindly confirm receipt",
+    "vietnamese": "Vui lòng xác nhận đã nhận / Xin xác nhận đã nhận",
+    "example": "Kindly confirm receipt of this email and let us know if you have any questions.",
+    "example_vi": "Vui lòng xác nhận đã nhận email này và cho chúng tôi biết nếu bạn có bất kỳ câu hỏi nào.",
+    "level": "Basic",
+    "tags": ["email", "office"]
+  },
+  {
+    "id": 96,
+    "category": "Office Email",
+    "english": "Best regards",
+    "vietnamese": "Trân trọng / Kính chào",
+    "example": "Best regards, [Your Name] — always use this professional closing in formal emails.",
+    "example_vi": "Trân trọng, [Tên bạn] — luôn sử dụng lời kết chuyên nghiệp này trong email trang trọng.",
+    "level": "Basic",
+    "tags": ["email", "office"]
+  },
+  {
+    "id": 97,
+    "category": "Meeting English",
+    "english": "Agenda",
+    "vietnamese": "Chương trình cuộc họp / Lịch trình họp",
+    "example": "Could you please share the meeting agenda at least one day before the meeting?",
+    "example_vi": "Bạn có thể chia sẻ chương trình cuộc họp ít nhất một ngày trước khi họp không?",
+    "level": "Basic",
+    "tags": ["meeting", "office", "Japanese company"]
+  },
+  {
+    "id": 98,
+    "category": "Meeting English",
+    "english": "Minutes of Meeting (MOM)",
+    "vietnamese": "Biên bản cuộc họp",
+    "example": "The minutes of meeting must be distributed within 24 hours after the meeting ends.",
+    "example_vi": "Biên bản cuộc họp phải được phân phối trong vòng 24 giờ sau khi cuộc họp kết thúc.",
+    "level": "Basic",
+    "tags": ["meeting", "office"]
+  },
+  {
+    "id": 99,
+    "category": "Meeting English",
+    "english": "Action Item",
+    "vietnamese": "Hạng mục hành động / Việc cần thực hiện",
+    "example": "Let me recap all action items: QC to submit the report by Thursday, Production to update the SOP by Friday.",
+    "example_vi": "Để tóm tắt tất cả hạng mục hành động: QC nộp báo cáo trước thứ Năm, Sản xuất cập nhật SOP trước thứ Sáu.",
+    "level": "Basic",
+    "tags": ["meeting", "office"]
+  },
+  {
+    "id": 100,
+    "category": "Meeting English",
+    "english": "Could you clarify",
+    "vietnamese": "Bạn có thể làm rõ / Vui lòng giải thích thêm",
+    "example": "Could you clarify what you mean by 'acceptable quality level' in this context?",
+    "example_vi": "Bạn có thể làm rõ ý bạn về 'mức chất lượng chấp nhận được' trong ngữ cảnh này không?",
+    "level": "Intermediate",
+    "tags": ["meeting", "office"]
+  },
+  {
+    "id": 101,
+    "category": "Meeting English",
+    "english": "Let's move on to the next point",
+    "vietnamese": "Hãy chuyển sang điểm tiếp theo",
+    "example": "We've covered this topic thoroughly. Let's move on to the next point on the agenda.",
+    "example_vi": "Chúng ta đã đề cập chủ đề này kỹ lưỡng rồi. Hãy chuyển sang điểm tiếp theo trong chương trình.",
+    "level": "Basic",
+    "tags": ["meeting", "office"]
+  },
+  {
+    "id": 102,
+    "category": "Meeting English",
+    "english": "Consensus",
+    "vietnamese": "Đồng thuận / Sự nhất trí",
+    "example": "We reached a consensus that the new procedure should be piloted in Line 3 first.",
+    "example_vi": "Chúng ta đã đạt được sự đồng thuận rằng quy trình mới nên được thí điểm ở Dây chuyền 3 trước.",
+    "level": "Intermediate",
+    "tags": ["meeting", "office"]
+  },
+  {
+    "id": 103,
+    "category": "Customer Complaint",
+    "english": "Customer Complaint",
+    "vietnamese": "Khiếu nại khách hàng",
+    "example": "A customer complaint was received regarding dimensional deviation on part number XY-100.",
+    "example_vi": "Đã nhận được khiếu nại khách hàng liên quan đến sai lệch kích thước trên số linh kiện XY-100.",
+    "level": "Basic",
+    "tags": ["customer", "quality"]
+  },
+  {
+    "id": 104,
+    "category": "Customer Complaint",
+    "english": "8D Report",
+    "vietnamese": "Báo cáo 8D / Báo cáo 8 bước",
+    "example": "The customer requires a full 8D report with root cause and permanent corrective actions.",
+    "example_vi": "Khách hàng yêu cầu báo cáo 8D đầy đủ với nguyên nhân gốc rễ và các hành động khắc phục lâu dài.",
+    "level": "Intermediate",
+    "tags": ["customer", "quality", "IATF 16949"]
+  },
+  {
+    "id": 105,
+    "category": "Customer Complaint",
+    "english": "Containment Action",
+    "vietnamese": "Hành động ngăn chặn / Biện pháp khoanh vùng",
+    "example": "As immediate containment action, all finished goods on-site were 100% inspected.",
+    "example_vi": "Là hành động ngăn chặn ngay lập tức, tất cả thành phẩm tại chỗ đã được kiểm tra 100%.",
+    "level": "Intermediate",
+    "tags": ["customer", "quality"]
+  },
+  {
+    "id": 106,
+    "category": "Customer Complaint",
+    "english": "Field Return",
+    "vietnamese": "Hàng trả về từ hiện trường / Hàng khách hàng trả",
+    "example": "The field return analysis showed that the failure mode was incorrect heat treatment.",
+    "example_vi": "Phân tích hàng trả về từ hiện trường cho thấy chế độ hỏng hóc là do nhiệt luyện không đúng.",
+    "level": "Advanced",
+    "tags": ["customer", "quality"]
+  },
+  {
+    "id": 107,
+    "category": "Customer Complaint",
+    "english": "Customer Satisfaction",
+    "vietnamese": "Sự hài lòng của khách hàng",
+    "example": "Improving customer satisfaction is a key performance indicator in our management review.",
+    "example_vi": "Cải thiện sự hài lòng của khách hàng là chỉ số hiệu suất chính trong xem xét quản lý của chúng ta.",
+    "level": "Basic",
+    "tags": ["customer", "quality", "ISO 9001"]
+  },
+  {
+    "id": 108,
+    "category": "Supplier Management",
+    "english": "Supplier Evaluation",
+    "vietnamese": "Đánh giá nhà cung cấp",
+    "example": "Annual supplier evaluation results will be shared with suppliers in January.",
+    "example_vi": "Kết quả đánh giá nhà cung cấp hàng năm sẽ được chia sẻ với các nhà cung cấp vào tháng Giêng.",
+    "level": "Intermediate",
+    "tags": ["supplier", "purchasing", "quality"]
+  },
+  {
+    "id": 109,
+    "category": "Supplier Management",
+    "english": "Approved Vendor List (AVL)",
+    "vietnamese": "Danh sách nhà cung cấp được chấp thuận",
+    "example": "Only suppliers on the approved vendor list may supply materials to our production line.",
+    "example_vi": "Chỉ các nhà cung cấp trong danh sách được chấp thuận mới có thể cung cấp vật tư cho dây chuyền sản xuất của chúng ta.",
+    "level": "Intermediate",
+    "tags": ["supplier", "purchasing"]
+  },
+  {
+    "id": 110,
+    "category": "Supplier Management",
+    "english": "Supplier Audit",
+    "vietnamese": "Đánh giá nhà cung cấp tại chỗ",
+    "example": "We will conduct a supplier audit at the new casting vendor's facility next month.",
+    "example_vi": "Chúng ta sẽ tiến hành đánh giá nhà cung cấp tại cơ sở của nhà cung cấp đúc mới vào tháng tới.",
+    "level": "Intermediate",
+    "tags": ["supplier", "audit", "quality"]
+  },
+  {
+    "id": 111,
+    "category": "Supplier Management",
+    "english": "Supplier Performance Score",
+    "vietnamese": "Điểm hiệu suất nhà cung cấp",
+    "example": "Suppliers with a performance score below 70% will be placed on a watch list.",
+    "example_vi": "Các nhà cung cấp có điểm hiệu suất dưới 70% sẽ được đưa vào danh sách theo dõi.",
+    "level": "Intermediate",
+    "tags": ["supplier", "purchasing"]
+  },
+  {
+    "id": 112,
+    "category": "Supplier Management",
+    "english": "Supplier Development",
+    "vietnamese": "Phát triển nhà cung cấp",
+    "example": "Our supplier development team provides training to help suppliers improve their quality systems.",
+    "example_vi": "Nhóm phát triển nhà cung cấp của chúng ta cung cấp đào tạo để giúp nhà cung cấp cải thiện hệ thống chất lượng.",
+    "level": "Advanced",
+    "tags": ["supplier", "quality"]
+  },
+  {
+    "id": 113,
+    "category": "Safety & Environment",
+    "english": "PPE (Personal Protective Equipment)",
+    "vietnamese": "Trang bị bảo hộ cá nhân",
+    "example": "Safety glasses and steel-toed shoes are mandatory PPE in the production area.",
+    "example_vi": "Kính bảo hộ và giày mũi thép là PPE bắt buộc trong khu vực sản xuất.",
+    "level": "Basic",
+    "tags": ["safety", "environment"]
+  },
+  {
+    "id": 114,
+    "category": "Safety & Environment",
+    "english": "Hazardous Material",
+    "vietnamese": "Vật liệu nguy hiểm / Chất nguy hại",
+    "example": "Hazardous materials must be stored in designated areas with proper labeling and MSDS sheets.",
+    "example_vi": "Vật liệu nguy hiểm phải được lưu trữ ở các khu vực được chỉ định với nhãn mác và tờ MSDS phù hợp.",
+    "level": "Intermediate",
+    "tags": ["safety", "environment", "ISO 14001"]
+  },
+  {
+    "id": 115,
+    "category": "Safety & Environment",
+    "english": "Environmental Aspect & Impact",
+    "vietnamese": "Khía cạnh & Tác động môi trường",
+    "example": "Oil waste from machining is identified as a significant environmental aspect in our register.",
+    "example_vi": "Chất thải dầu từ gia công cơ khí được xác định là khía cạnh môi trường đáng kể trong sổ đăng ký của chúng ta.",
+    "level": "Advanced",
+    "tags": ["environment", "ISO 14001"]
+  },
+  {
+    "id": 116,
+    "category": "Safety & Environment",
+    "english": "Risk Matrix",
+    "vietnamese": "Ma trận rủi ro",
+    "example": "The risk matrix uses severity and probability scores to prioritize safety hazards.",
+    "example_vi": "Ma trận rủi ro sử dụng điểm mức độ nghiêm trọng và xác suất để ưu tiên các mối nguy hiểm an toàn.",
+    "level": "Intermediate",
+    "tags": ["safety", "quality"]
+  },
+  {
+    "id": 117,
+    "category": "Safety & Environment",
+    "english": "Incident Report",
+    "vietnamese": "Báo cáo sự cố",
+    "example": "All workplace incidents, even near misses, must be reported using the incident report form.",
+    "example_vi": "Tất cả sự cố tại nơi làm việc, kể cả suýt tai nạn, phải được báo cáo bằng biểu mẫu báo cáo sự cố.",
+    "level": "Basic",
+    "tags": ["safety"]
+  },
+  {
+    "id": 118,
+    "category": "Safety & Environment",
+    "english": "Near Miss",
+    "vietnamese": "Suýt tai nạn / Sự cố suýt xảy ra",
+    "example": "Reporting near misses helps us prevent actual accidents before they happen.",
+    "example_vi": "Báo cáo suýt tai nạn giúp chúng ta ngăn ngừa tai nạn thực sự trước khi chúng xảy ra.",
+    "level": "Intermediate",
+    "tags": ["safety"]
+  },
+  {
+    "id": 119,
+    "category": "Safety & Environment",
+    "english": "Waste Management",
+    "vietnamese": "Quản lý chất thải",
+    "example": "Our waste management plan separates metal chips, oil waste, and general garbage for proper disposal.",
+    "example_vi": "Kế hoạch quản lý chất thải của chúng ta phân loại phoi kim loại, chất thải dầu và rác thải thông thường để xử lý đúng cách.",
+    "level": "Intermediate",
+    "tags": ["environment", "ISO 14001"]
+  },
+  {
+    "id": 120,
+    "category": "Safety & Environment",
+    "english": "Emergency Procedure",
+    "vietnamese": "Quy trình khẩn cấp / Thủ tục ứng phó khẩn cấp",
+    "example": "All employees must be trained on emergency procedures including fire evacuation routes.",
+    "example_vi": "Tất cả nhân viên phải được đào tạo về quy trình khẩn cấp bao gồm các lộ trình sơ tán khi có hỏa hoạn.",
+    "level": "Basic",
+    "tags": ["safety"]
+  },
+  {
+    "id": 121,
+    "category": "ISO Terms",
+    "english": "Process Approach",
+    "vietnamese": "Tiếp cận theo quá trình",
+    "example": "ISO 9001 requires organizations to manage their activities using a process approach.",
+    "example_vi": "ISO 9001 yêu cầu các tổ chức quản lý các hoạt động của mình bằng cách tiếp cận theo quá trình.",
+    "level": "Advanced",
+    "tags": ["quality", "ISO 9001"]
+  },
+  {
+    "id": 122,
+    "category": "Quality Control",
+    "english": "FMEA (Failure Mode and Effects Analysis)",
+    "vietnamese": "Phân tích chế độ lỗi và tác động",
+    "example": "Process FMEA must be updated whenever there is a significant change in the manufacturing process.",
+    "example_vi": "FMEA quy trình phải được cập nhật bất cứ khi nào có thay đổi đáng kể trong quy trình sản xuất.",
+    "level": "Advanced",
+    "tags": ["quality", "IATF 16949", "automotive"]
+  },
+  {
+    "id": 123,
+    "category": "Kaizen",
+    "english": "Continuous Flow",
+    "vietnamese": "Dòng chảy liên tục",
+    "example": "Converting from batch production to continuous flow reduced our WIP by 60%.",
+    "example_vi": "Chuyển đổi từ sản xuất theo lô sang dòng chảy liên tục đã giảm WIP của chúng ta đi 60%.",
+    "level": "Advanced",
+    "tags": ["kaizen", "lean", "production"]
+  }
+]

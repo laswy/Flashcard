@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocabPro — Từ Vựng Tiếng Anh Chuyên Ngành Cơ Khí & QA/QC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <div class="logo-icon">⚙️</div>
+        <div class="logo-text">
+          <span class="logo-name">VocabPro</span>
+          <span class="logo-sub">Chuyên ngành cơ khí</span>
+        </div>
+      </div>
+      <button class="btn-icon sidebar-close" id="sidebarClose" title="Đóng menu">✕</button>
+    </div>
+
+    <!-- Mode toggle -->
+    <div class="mode-toggle-box">
+      <p class="toggle-label">Chế độ học</p>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="modeEnVi" onclick="setMode('en-vi')">
+          <span>🇬🇧</span> EN → VI
+        </button>
+        <button class="mode-btn" id="modeViEn" onclick="setMode('vi-en')">
+          <span>🇻🇳</span> VI → EN
+        </button>
+      </div>
+    </div>
+
+    <!-- Category list -->
+    <div class="sidebar-section">
+      <p class="section-label">Danh mục</p>
+      <ul class="category-list" id="categoryList"></ul>
+    </div>
+
+    <!-- Sidebar progress -->
+    <div class="sidebar-section sidebar-progress-section">
+      <p class="section-label">Tiến độ học</p>
+      <div class="sidebar-progress-bar-wrap">
+        <div class="sidebar-progress-bar" id="sidebarProgressBar"></div>
+      </div>
+      <div class="sidebar-progress-stats">
+        <span id="sidebarProgressText">0 / 0 từ đã học</span>
+        <span id="sidebarProgressPct">0%</span>
+      </div>
+    </div>
+
+    <!-- Summary stats -->
+    <div class="sidebar-mini-stats">
+      <div class="mini-stat">
+        <div class="mini-stat-value" id="sStatTotal">0</div>
+        <div class="mini-stat-label">Tổng từ</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value" id="sStatLearned">0</div>
+        <div class="mini-stat-label">Đã thuộc</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-value" id="sStatFav">0</div>
+        <div class="mini-stat-label">Yêu thích</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sidebar overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <div class="main-wrapper" id="mainWrapper">
+
+    <!-- Top bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <button class="btn-icon" id="sidebarOpen" onclick="openSidebar()" title="Menu">☰</button>
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Tìm từ vựng..."
+            oninput="handleSearch(this.value)"
+          />
+          <button class="search-clear" id="searchClear" onclick="clearSearch()" style="display:none">✕</button>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <button class="btn-icon btn-with-label" id="quizToggleBtn" onclick="toggleQuizMode()" title="Chế độ Quiz">
+          <span>📝</span><span class="btn-label">Quiz</span>
+        </button>
+        <button class="btn-icon btn-with-label" id="favToggleBtn" onclick="toggleFavoritesView()" title="Yêu thích">
+          <span>⭐</span><span class="btn-label">Yêu thích</span>
+        </button>
+        <button class="btn-icon" onclick="exportData()" title="Xuất JSON">📤</button>
+        <label class="btn-icon" title="Nhập JSON" style="cursor:pointer">
+          📥<input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+        </label>
+        <button class="btn-icon" id="darkModeBtn" onclick="toggleDarkMode()" title="Dark/Light mode">🌙</button>
+      </div>
+    </header>
+
+    <!-- ========== FLASHCARD SECTION ========== -->
+    <section class="flashcard-section" id="flashcardSection">
+
+      <!-- Status bar above card -->
+      <div class="card-status-bar">
+        <div class="card-counter-wrap">
+          <span class="card-counter" id="cardCounter">1 / 0</span>
+          <span class="level-badge" id="levelBadge">Basic</span>
+        </div>
+        <div class="card-filter-info" id="cardFilterInfo"></div>
+        <div class="card-action-icons">
+          <button class="icon-btn fav-btn" id="favBtn" onclick="toggleFavorite()" title="Yêu thích">☆</button>
+          <button class="icon-btn" onclick="speakWord('front')" title="Phát âm">🔊</button>
+        </div>
+      </div>
+
+      <!-- Flashcard -->
+      <div class="flashcard-viewport">
+        <div class="flashcard-scene">
+          <div class="flashcard" id="flashcard" onclick="flipCard()">
+            <!-- FRONT -->
+            <div class="card-face card-front" id="cardFront">
+              <div class="card-face-inner">
+                <div class="card-category-chip" id="cardCategory">ISO Terms</div>
+                <div class="card-main-word" id="cardWord">Corrective Action</div>
+                <div class="card-flip-hint">
+                  <span class="hint-icon">👆</span> Nhấn để xem nghĩa
+                </div>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="card-face card-back" id="cardBack">
+              <div class="card-face-inner">
+                <div class="card-translation" id="cardTranslation">Hành động khắc phục</div>
+                <div class="card-divider"></div>
+                <div class="card-example-block">
+                  <div class="example-label">📌 Ví dụ thực tế</div>
+                  <div class="example-en" id="exampleEn"></div>
+                  <div class="example-vi" id="exampleVi"></div>
+                </div>
+                <div class="card-tags" id="cardTags"></div>
+                <button class="speak-back-btn" onclick="event.stopPropagation(); speakWord('back')" title="Phát âm">🔊</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation controls -->
+      <div class="nav-controls">
+        <button class="btn btn-nav" onclick="prevCard()">
+          <span>←</span> Trước
+        </button>
+        <div class="center-controls">
+          <button class="btn btn-hard" onclick="markCard('hard')" title="Chưa thuộc">
+            😓 Khó
+          </button>
+          <button class="btn btn-learned" onclick="markCard('learned')" title="Đã thuộc">
+            ✓ Biết rồi
+          </button>
+        </div>
+        <button class="btn btn-nav" onclick="nextCard()">
+          Sau <span>→</span>
+        </button>
+      </div>
+
+      <!-- Action row -->
+      <div class="action-row">
+        <button class="btn btn-ghost" onclick="shuffleCards()">🔀 Xáo bài</button>
+        <button class="btn btn-ghost" onclick="resetProgress()">🔄 Học lại</button>
+        <button class="btn btn-ghost" onclick="showGuide()">❓ Hướng dẫn</button>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-section">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-labels">
+          <span id="progressLearnedLabel">0 đã thuộc</span>
+          <span id="progressPctLabel">0%</span>
+          <span id="progressTotalLabel">0 từ</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========== QUIZ SECTION ========== -->
+    <section class="quiz-section hidden" id="quizSection">
+      <div class="quiz-header">
+        <div class="quiz-title-row">
+          <h2 class="quiz-title">📝 Chế Độ Quiz</h2>
+          <button class="btn btn-secondary" onclick="toggleQuizMode()">← Học lại</button>
+        </div>
+        <div class="quiz-score-bar">
+          <div class="quiz-score-item correct-score">
+            ✅ Đúng: <strong id="quizCorrect">0</strong>
+          </div>
+          <div class="quiz-score-item wrong-score">
+            ❌ Sai: <strong id="quizWrong">0</strong>
+          </div>
+          <div class="quiz-score-item">
+            🔥 Chuỗi đúng: <strong id="quizStreak">0</strong>
+          </div>
+          <div class="quiz-accuracy">
+            <strong id="quizAccuracy">—</strong> chính xác
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-card-wrap">
+        <div class="quiz-question-card">
+          <div class="quiz-question-label">Từ cần dịch:</div>
+          <div class="quiz-question-word" id="quizQuestion">—</div>
+          <div class="quiz-question-example" id="quizExample"></div>
+        </div>
+        <div class="quiz-options-grid" id="quizOptions"></div>
+      </div>
+
+      <div class="quiz-next-row">
+        <button class="btn btn-primary" id="quizNextBtn" onclick="nextQuiz()" style="display:none">
+          Câu tiếp theo →
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== DASHBOARD ========== -->
+    <section class="dashboard" id="dashboard">
+      <button class="dashboard-toggle-btn" onclick="toggleDashboard()">
+        <span>📊 Thống Kê Học Tập</span>
+        <span id="dashToggleIcon">▼</span>
+      </button>
+      <div class="dashboard-body" id="dashboardBody">
+
+        <!-- KPI cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card kpi-total">
+            <div class="kpi-icon">📚</div>
+            <div class="kpi-value" id="dashTotal">0</div>
+            <div class="kpi-label">Tổng số từ</div>
+          </div>
+          <div class="kpi-card kpi-learned">
+            <div class="kpi-icon">✅</div>
+            <div class="kpi-value" id="dashLearned">0</div>
+            <div class="kpi-label">Đã thuộc</div>
+          </div>
+          <div class="kpi-card kpi-accuracy">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-value" id="dashAccuracy">—</div>
+            <div class="kpi-label">Quiz chính xác</div>
+          </div>
+          <div class="kpi-card kpi-streak">
+            <div class="kpi-icon">🔥</div>
+            <div class="kpi-value" id="dashStreak">0</div>
+            <div class="kpi-label">Chuỗi đúng cao nhất</div>
+          </div>
+          <div class="kpi-card kpi-fav">
+            <div class="kpi-icon">⭐</div>
+            <div class="kpi-value" id="dashFav">0</div>
+            <div class="kpi-label">Yêu thích</div>
+          </div>
+          <div class="kpi-card kpi-hard">
+            <div class="kpi-icon">😓</div>
+            <div class="kpi-value" id="dashHard">0</div>
+            <div class="kpi-label">Từ khó</div>
+          </div>
+        </div>
+
+        <!-- Category breakdown -->
+        <div class="category-breakdown" id="categoryBreakdown"></div>
+
+      </div>
+    </section>
+
+  </div><!-- /main-wrapper -->
+
+  <!-- ========== GUIDE MODAL ========== -->
+  <div class="modal-overlay hidden" id="guideModal" onclick="hideGuide(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>📖 Hướng Dẫn Sử Dụng</h3>
+        <button class="btn-icon" onclick="closeGuide()">✕</button>
+      </div>
+      <div class="modal-body">
+        <h4>🚀 Cách học cơ bản</h4>
+        <ul>
+          <li>Nhấn vào thẻ để xem nghĩa (lật thẻ)</li>
+          <li><strong>😓 Khó</strong> — đánh dấu từ chưa thuộc, ôn lại sau</li>
+          <li><strong>✓ Biết rồi</strong> — đánh dấu đã thuộc, tính vào tiến độ</li>
+          <li>Bấm <strong>🔊</strong> để nghe phát âm</li>
+          <li>Bấm <strong>⭐</strong> để thêm vào danh sách yêu thích</li>
+        </ul>
+        <h4>⚙️ Các chức năng</h4>
+        <ul>
+          <li><strong>EN → VI</strong>: Học từ tiếng Anh sang tiếng Việt</li>
+          <li><strong>VI → EN</strong>: Học từ tiếng Việt sang tiếng Anh</li>
+          <li><strong>🔀 Xáo bài</strong>: Trộn ngẫu nhiên thứ tự thẻ</li>
+          <li><strong>📝 Quiz</strong>: Chế độ trắc nghiệm 4 đáp án</li>
+          <li><strong>📤 Xuất</strong>: Xuất dữ liệu ra file JSON</li>
+          <li><strong>📥 Nhập</strong>: Nhập thêm từ vựng từ file JSON</li>
+        </ul>
+        <h4>➕ Thêm từ mới vào data.json</h4>
+        <pre>{
+  "id": 200,
+  "category": "ISO Terms",
+  "english": "Your Term",
+  "vietnamese": "Nghĩa tiếng Việt",
+  "example": "Example sentence in English.",
+  "example_vi": "Câu ví dụ tiếng Việt.",
+  "level": "Basic",
+  "tags": ["quality"]
+}</pre>
+        <p>Lưu file và tải lại trang. Hoặc dùng nút 📥 để nhập file JSON.</p>
+        <h4>🌐 Deploy lên GitHub Pages</h4>
+        <ol>
+          <li>Tạo repo trên GitHub</li>
+          <li>Upload 4 file: <code>index.html</code>, <code>style.css</code>, <code>app.js</code>, <code>data.json</code></li>
+          <li>Vào Settings → Pages → chọn branch <code>main</code></li>
+          <li>Truy cập link <code>username.github.io/repo-name</code></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TOAST ========== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
