@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Vocabulary Rain — VocabPro</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+  <!-- ===================== SCREEN: START ===================== -->
+  <div class="screen" id="startScreen">
+    <div class="start-inner">
+
+      <a href="index.html" class="back-link">← Quay lại Flashcard</a>
+
+      <div class="game-logo">
+        <div class="logo-rain">🌧️</div>
+        <h1>Vocabulary Rain</h1>
+        <p>Nghĩa tiếng Việt rơi xuống — gõ từ tiếng Anh trước khi chạm đáy!</p>
+      </div>
+
+      <!-- Mode buttons -->
+      <div class="select-block">
+        <h3 class="select-label">Chế độ chơi</h3>
+        <div class="mode-grid">
+          <button class="mode-card active" data-mode="survival" onclick="selectMode('survival')">
+            <span class="card-icon">❤️</span>
+            <strong>Survival</strong>
+            <span>3 mạng · mất máu khi từ chạm đáy</span>
+          </button>
+          <button class="mode-card" data-mode="practice" onclick="selectMode('practice')">
+            <span class="card-icon">🎯</span>
+            <strong>Practice</strong>
+            <span>Vô hạn · không giới hạn mạng</span>
+          </button>
+          <button class="mode-card" data-mode="daily" onclick="selectMode('daily')">
+            <span class="card-icon">📅</span>
+            <strong>Daily Challenge</strong>
+            <span>25 từ hôm nay · chuỗi cố định</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Difficulty -->
+      <div class="select-block" id="diffBlock">
+        <h3 class="select-label">Độ khó</h3>
+        <div class="diff-grid">
+          <button class="diff-btn active" data-diff="easy"   onclick="selectDiff('easy')">
+            <strong>Easy</strong><span>Chậm · từ ngắn</span>
+          </button>
+          <button class="diff-btn"        data-diff="normal" onclick="selectDiff('normal')">
+            <strong>Normal</strong><span>Vừa · hỗn hợp</span>
+          </button>
+          <button class="diff-btn"        data-diff="hard"   onclick="selectDiff('hard')">
+            <strong>Hard</strong><span>Nhanh · chuyên ngành</span>
+          </button>
+          <button class="diff-btn"        data-diff="expert" onclick="selectDiff('expert')">
+            <strong>Expert</strong><span>Cực nhanh · liên tục</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- High-score table -->
+      <div id="highScorePanel"></div>
+
+      <button class="btn-play" onclick="startGame()">▶ Bắt Đầu</button>
+
+      <p class="keyboard-tip">💡 Phím tắt trong game: <kbd>P</kbd> = tạm dừng · <kbd>Esc</kbd> = thoát</p>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN: GAME ===================== -->
+  <div class="screen hidden" id="gameScreen">
+
+    <!-- HUD top -->
+    <header class="hud" id="hud">
+      <div class="hud-left">
+        <div class="lives" id="livesEl">❤️❤️❤️</div>
+        <div class="hud-label" id="hudLabel">Survival · Easy</div>
+      </div>
+      <div class="hud-center">
+        <div class="score-num" id="scoreEl">0</div>
+        <div class="score-label">điểm</div>
+      </div>
+      <div class="hud-right">
+        <div class="combo-wrap" id="comboWrap">
+          <div class="combo-val" id="comboVal">×2</div>
+          <div class="combo-lab">COMBO</div>
+        </div>
+        <div class="acc-wrap">
+          <div class="acc-val" id="accEl">—</div>
+          <div class="acc-lab">acc</div>
+        </div>
+        <button class="hud-pause-btn" id="pauseBtn" onclick="togglePause()">⏸</button>
+      </div>
+    </header>
+
+    <!-- Falling area -->
+    <div class="field" id="field">
+      <!-- falling words injected here -->
+      <div class="field-danger" id="danger"></div>
+    </div>
+
+    <!-- Typing area -->
+    <footer class="type-area" id="typeArea">
+      <div class="type-hint" id="typeHint">Gõ từ tiếng Anh tương ứng...</div>
+      <input
+        id="gameInput"
+        class="game-input"
+        type="text"
+        placeholder="Gõ ở đây..."
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        oninput="onInput(event)"
+      />
+    </footer>
+
+    <!-- Pause overlay -->
+    <div class="overlay hidden" id="pauseOverlay">
+      <div class="overlay-box">
+        <div class="overlay-icon">⏸</div>
+        <h2>Tạm Dừng</h2>
+        <div class="overlay-btns">
+          <button class="obtn obtn-primary" onclick="togglePause()">▶ Tiếp Tục</button>
+          <button class="obtn obtn-ghost"   onclick="exitToMenu()">↩ Menu</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== SCREEN: GAME OVER ===================== -->
+  <div class="screen hidden" id="overScreen">
+    <div class="over-inner">
+      <div class="over-icon" id="overIcon">💀</div>
+      <h2 class="over-title" id="overTitle">Game Over!</h2>
+
+      <div class="over-stats" id="overStats">
+        <div class="over-stat"><span>Điểm số</span><strong id="oScore">0</strong></div>
+        <div class="over-stat"><span>High Score</span><strong id="oHigh">0</strong></div>
+        <div class="over-stat"><span>Từ đúng</span><strong id="oCorrect">0</strong></div>
+        <div class="over-stat"><span>Combo cao nhất</span><strong id="oCombo">0</strong></div>
+        <div class="over-stat"><span>Accuracy</span><strong id="oAcc">—</strong></div>
+        <div class="over-stat"><span>Thời gian</span><strong id="oTime">0s</strong></div>
+      </div>
+
+      <div class="new-record hidden" id="newRecord">🏆 Kỷ lục mới!</div>
+
+      <div class="over-btns">
+        <button class="obtn obtn-primary" onclick="restartGame()">🔄 Chơi Lại</button>
+        <button class="obtn obtn-ghost"   onclick="exitToMenu()">↩ Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating score text (appended to body dynamically) -->
+
+  <script src="game.js"></script>
+</body>
+</html>
