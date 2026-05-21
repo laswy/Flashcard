@@ -458,7 +458,7 @@ function handleMiss(fw) {
   G.misses++;
   G.combo = 0;
 
-  // Freeze the word at its current position so it doesn't keep falling
+  // Stop falling — freeze at current rendered position
   fw.el.style.top       = fw.y + 'px';
   fw.el.style.transform = 'none';
   fw.el.classList.remove('fw-hl', 'fw-danger');
@@ -467,6 +467,18 @@ function handleMiss(fw) {
   fw.el.classList.add('fw-reveal');
   const enEl = fw.el.querySelector('.fw-en');
   if (enEl) enEl.classList.add('fw-en-show');
+
+  // Slide the card upward so the full card (including English answer ~115px)
+  // stays inside the field and isn't clipped by overflow:hidden or the type-area.
+  // We do this in the next animation frame so the browser records the start
+  // position first and animates the top change via CSS transition.
+  requestAnimationFrame(() => {
+    const fieldH  = document.getElementById('field').clientHeight;
+    const safeTop = fieldH - 125; // 125px ≈ card height + English row + margin
+    if (fw.y > safeTop) {
+      fw.el.style.top = safeTop + 'px';
+    }
+  });
 
   // Remove DOM element after the reveal animation finishes
   setTimeout(() => fw.el.remove(), REVEAL_MS + 200);

@@ -445,31 +445,34 @@ kbd {
   100% { transform: scale(1.32); opacity: 0; }
 }
 
-/* Reveal on miss — freeze, show answer, hold then fade */
+/* Reveal on miss — card slides up into view, shows answer, holds, then fades */
 .fw.fw-reveal {
   border-color: var(--red) !important;
   background: rgba(239, 68, 68, .14) !important;
   box-shadow:
     0 0 0 2px rgba(239,68,68,.25),
-    0 0 28px rgba(239,68,68,.35),
-    0 4px 16px rgba(0,0,0,.5) !important;
-  animation: revealHold 2.3s ease forwards;
+    0 0 28px rgba(239,68,68,.4),
+    0 4px 20px rgba(0,0,0,.6) !important;
+  /* Smooth slide-up when JS adjusts 'top' via requestAnimationFrame */
+  transition: top 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Opacity-only fade so it doesn't fight the top transition */
+  animation: revealFade 2.3s ease forwards;
   pointer-events: none;
+  /* Ensure card renders above the danger zone gradient */
+  z-index: 5;
 }
 
-/* Small "answer" label above the English word */
+/* Small "📖 đáp án" suffix on the category line */
 .fw.fw-reveal .fw-cat::after {
   content: ' · 📖 đáp án';
   color: var(--red);
-  opacity: .9;
+  opacity: .85;
 }
 
-@keyframes revealHold {
-  /* Brief scale-up on reveal, then hold, then fade out */
-  0%   { opacity: 1; transform: scale(1.06); }
-  12%  { transform: scale(1); }
-  72%  { opacity: 1; }
-  100% { opacity: 0; transform: scale(.9) translateY(8px); }
+@keyframes revealFade {
+  /* Hold fully visible, then fade out at the end */
+  0%,  72% { opacity: 1; }
+  100%     { opacity: 0; }
 }
 
 /* Field flash on miss */
