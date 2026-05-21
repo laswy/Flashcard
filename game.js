@@ -258,8 +258,10 @@ function update(dt) {
   const speed = G.dc.speed + Math.floor(G.elapsed / 30) * G.dc.accel;
 
   // ---- Spawn ----
+  // Count only words still actively falling (not yet removed/revealed)
+  const activeCount = G.falling.filter(f => !f.removed).length;
   const canSpawn =
-    G.falling.length < G.dc.maxScreen &&
+    activeCount < G.dc.maxScreen &&
     G.spawnTimer >= G.dc.spawnMs;
 
   if (canSpawn) {
@@ -334,6 +336,7 @@ function spawnWord(field, speed) {
   el.innerHTML = `
     <div class="fw-vi">${escH(vi)}</div>
     <div class="fw-cat">${escH(card.category)}</div>
+    <div class="fw-en">${escH(card.english)}</div>
     <div class="fw-hint" data-hint></div>
   `;
 
@@ -448,40 +451,50 @@ function handleCorrect(fw) {
    MISS (word hit bottom)
    ================================================================ */
 
+const REVEAL_MS = 2300; // how long the answer stays visible
+
 function handleMiss(fw) {
   fw.removed = true;
   G.misses++;
   G.combo = 0;
 
-  // Visual
+  // Freeze the word at its current position so it doesn't keep falling
   fw.el.style.top       = fw.y + 'px';
   fw.el.style.transform = 'none';
   fw.el.classList.remove('fw-hl', 'fw-danger');
-  fw.el.classList.add('fw-miss');
-  setTimeout(() => fw.el.remove(), 360);
+
+  // Reveal the English answer — the whole point of this game is learning!
+  fw.el.classList.add('fw-reveal');
+  const enEl = fw.el.querySelector('.fw-en');
+  if (enEl) enEl.classList.add('fw-en-show');
+
+  // Remove DOM element after the reveal animation finishes
+  setTimeout(() => fw.el.remove(), REVEAL_MS + 200);
 
   // Lose a life
   if (G.mc.lives !== Infinity) {
     G.lives = Math.max(0, G.lives - 1);
     renderLives();
+
     // Flash field red
     const field = document.getElementById('field');
     field.classList.remove('flash');
-    void field.offsetWidth; // reflow to restart animation
+    void field.offsetWidth;
     field.classList.add('flash');
     setTimeout(() => field.classList.remove('flash'), 420);
 
-    // Show hint
+    // Show hint text
     const hint = document.getElementById('typeHint');
-    hint.textContent = '💔 Miss! Từ chạm đáy -1 mạng';
+    hint.textContent = `💔 Miss! Đáp án: "${fw.card.english}" — hãy ghi nhớ nhé!`;
     hint.style.color = '#ef4444';
     setTimeout(() => {
       hint.textContent = 'Gõ từ tiếng Anh tương ứng...';
       hint.style.color = '';
-    }, 1400);
+    }, REVEAL_MS);
 
     if (G.lives <= 0) {
-      setTimeout(() => endGame(false), 450);
+      // Delay game-over until the last reveal has finished showing
+      setTimeout(() => endGame(false), REVEAL_MS + 100);
     }
   }
 
