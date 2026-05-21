@@ -60,6 +60,9 @@ const CATEGORY_ICONS = {
   'Customer Complaint':   '📣',
   'Supplier Management':  '🤝',
   'Safety & Environment': '🦺',
+  'Business Communication': '💬',
+  'HR & Admin':             '🗂️',
+  'Engineering':            '🔧',
 };
 
 /* ================================================================
