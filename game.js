@@ -359,26 +359,32 @@ function spawnWord(field, speed) {
   // Build DOM element
   const [color, rgb] = CAT_COLOR[card.category] || ['#4f6ef7', '79,110,247'];
   const isLearn = G.mode === 'learn';
-  const vi      = isLearn ? (card.vietnamese || '') : simplifyVi(card.vietnamese);
+  const isDaily = G.mode === 'daily';
+  const vi      = (isLearn || isDaily) ? (card.vietnamese || '') : simplifyVi(card.vietnamese);
 
   const el = document.createElement('div');
-  el.className = isLearn ? 'fw fw-learn' : 'fw';
+  el.className = isLearn ? 'fw fw-learn' : (isDaily ? 'fw fw-daily' : 'fw');
   el.style.setProperty('--fw-color', color);
   el.style.setProperty('--fw-rgb', rgb);
   el.innerHTML = `
     <div class="fw-vi">${escH(vi)}</div>
     <div class="fw-cat">${escH(card.category)}</div>
-    <div class="fw-en">${escH(card.english)}</div>
+    <div class="fw-en ${isDaily ? 'fw-en-show' : ''}">${escH(card.english)}</div>
     <div class="fw-hint" data-hint></div>
   `;
 
-  // X position: centered for learn, spread for game
+  // Auto-speak when word appears in daily mode
+  if (isDaily) {
+    setTimeout(() => speakDailyCard(card), 200);
+  }
+
+  // X position: centered for learn/daily, spread for game
   const fieldW = field.clientWidth;
-  const wordW  = isLearn
-    ? Math.min(300, Math.max(160, vi.length * 11 + 40))
+  const wordW  = (isLearn || isDaily)
+    ? Math.min(fieldW - 16, Math.max(220, vi.length * 11 + 60))
     : Math.min(220, Math.max(110, vi.length * 14 + 28));
   const maxX   = Math.max(0, fieldW - wordW);
-  const x      = isLearn ? Math.round(maxX / 2) : pickX(maxX);
+  const x      = (isLearn || isDaily) ? Math.round(maxX / 2) : pickX(maxX);
 
   el.style.left = x + 'px';
   el.style.top  = '0px';
@@ -574,8 +580,9 @@ function handleLearnReveal(fw) {
 
   // Slide card up so it's fully visible above typing bar
   requestAnimationFrame(() => {
-    const fieldH  = document.getElementById('field').clientHeight;
-    const safeTop = fieldH - 155;
+    const fieldH   = document.getElementById('field').clientHeight;
+    const cardH    = fw.el.offsetHeight || 100;
+    const safeTop  = Math.max(10, fieldH - cardH - 20);
     if (fw.y > safeTop) fw.el.style.top = safeTop + 'px';
   });
 
@@ -636,6 +643,28 @@ function speakLearnCard(card, onDone) {
 
       synth.speak(viUtter);
     }, 380);
+  };
+
+  synth.speak(enUtter);
+}
+
+function speakDailyCard(card) {
+  const synth = window.speechSynthesis;
+  if (!synth) return;
+  synth.cancel();
+
+  const enUtter = new SpeechSynthesisUtterance(card.english);
+  enUtter.lang  = 'en-US';
+  enUtter.rate  = 0.82;
+  enUtter.volume = 1;
+
+  enUtter.onend = () => {
+    setTimeout(() => {
+      const viUtter = new SpeechSynthesisUtterance(card.vietnamese);
+      viUtter.lang  = 'vi-VN';
+      viUtter.rate  = 0.85;
+      synth.speak(viUtter);
+    }, 300);
   };
 
   synth.speak(enUtter);

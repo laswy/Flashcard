@@ -485,8 +485,10 @@ kbd {
 
 /* ---- Learn mode word card ---- */
 .fw.fw-learn {
-  max-width: 300px;
-  min-width: 160px;
+  max-width: calc(100vw - 16px);
+  min-width: 220px;
+  width: max-content;
+  box-sizing: border-box;
 }
 
 .fw.fw-learn .fw-vi { font-size: 1.05rem; }
@@ -515,6 +517,30 @@ kbd {
   opacity: .9;
 }
 
+/* ---- Daily Challenge card — show both EN and VI ---- */
+.fw.fw-daily {
+  max-width: calc(100vw - 16px);
+  min-width: 220px;
+  width: max-content;
+  box-sizing: border-box;
+  border-color: rgba(245,158,11,.45);
+  background: rgba(245,158,11,.08);
+}
+
+.fw.fw-daily .fw-vi {
+  font-size: 1rem;
+  color: #fbbf24;
+}
+
+.fw.fw-daily .fw-en.fw-en-show {
+  color: #a5f3fc !important;
+  font-size: 1.1rem !important;
+  font-weight: 700;
+  display: block;
+  opacity: 1;
+  animation: none;
+}
+
 /* ---- Learn mode bottom bar ---- */
 .learn-bar {
   height: var(--type-h);
@@ -536,6 +562,10 @@ kbd {
   color: var(--text);
   transition: color .3s;
   text-align: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  padding: 0 4px;
 }
 
 .learn-counter {
@@ -759,4 +789,22 @@ kbd {
 @media (max-width: 360px) {
   .hud-label { display: none; }
   .acc-lab, .combo-lab { display: none; }
+}
+
+@media (max-width: 520px) {
+  .fw.fw-learn,
+  .fw.fw-daily {
+    min-width: 180px;
+    max-width: calc(100vw - 16px);
+    padding: 10px 12px;
+  }
+
+  .fw.fw-learn .fw-vi,
+  .fw.fw-daily .fw-vi { font-size: .9rem; }
+
+  .fw.fw-daily .fw-en.fw-en-show { font-size: 1rem !important; }
+
+  .fw.fw-learn-reveal .fw-en { font-size: 1.1rem !important; }
+
+  .learn-status { font-size: .8rem; }
 }
